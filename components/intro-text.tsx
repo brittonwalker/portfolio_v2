@@ -53,7 +53,7 @@ export function IntroText() {
 
   return (
     <section
-      className="min-h-dvh text-[max(21px,3vw)] leading-[4vw] py-20 relative"
+      className="text-[max(21px,3vw)] leading-[4vw] py-[20dvh] relative"
       ref={containerRef}
     >
       <div className="text-container pr-[20%]">
@@ -70,9 +70,11 @@ export function IntroText() {
           >
             Britton
           </span>
-          , a developer working where design and engineering meet. I build web
-          experiences that behave with intention, clarity, and grounded in
-          performance. My work centers on usability and thoughtful interaction.
+          , a design engineer who works in the space where interaction,
+          storytelling, and system architecture meet. I care about motion,
+          clarity, and the systems that support them. They form the invisible
+          structure that makes the work feel effortless and the message
+          instantly understood.
         </p>
         <div className="mt-[1.3em]">
           <p
@@ -80,10 +82,10 @@ export function IntroText() {
               if (el) textRefs.current[1] = el;
             }}
           >
-            I collaborate with designers and engineers to shape the patterns,
-            interactions, and systems that make products scale. The goal is
-            always the same: elevate the message and create experiences that
-            feel considered and meaningful.
+            I prototype early, work directly with designers, and build the
+            systems that turn expressive ideas into experiences that scale. My
+            aim is simple: create interfaces that feel intentional, responsive,
+            and unmistakably human.
           </p>
         </div>
       </div>
@@ -95,7 +97,7 @@ export function IntroText() {
           }}
         >
           <video
-            src={'/video/bboys-optimized.mp4'}
+            src={'/video/bboys-fun.webm'}
             autoPlay
             loop
             muted

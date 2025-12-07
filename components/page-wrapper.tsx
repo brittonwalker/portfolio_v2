@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useLenis, ReactLenis } from 'lenis/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Header } from './header-two';
+import { useLoading } from '@/context/loading-context';
 
 export function PageWrapper({
   children,
@@ -11,6 +12,7 @@ export function PageWrapper({
   children: React.ReactNode;
 }>) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isReady } = useLoading();
   const lenis = useLenis();
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export function PageWrapper({
   }, [menuOpen]);
 
   useEffect(() => {
-    if (!lenis) return;
+    if (!lenis || !isReady) return;
     if (menuOpen) {
       ScrollTrigger.normalizeScroll(false);
       lenis.stop();
@@ -30,7 +32,15 @@ export function PageWrapper({
       ScrollTrigger.normalizeScroll(true);
       lenis.start();
     }
-  }, [menuOpen, lenis]);
+  }, [menuOpen, lenis, isReady]);
+
+  // Initialize scroll after loading is complete
+  useEffect(() => {
+    if (!lenis || !isReady) return;
+
+    lenis.start();
+    ScrollTrigger.refresh();
+  }, [isReady, lenis]);
 
   return (
     <ReactLenis root>

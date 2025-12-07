@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 import { PageWrapper } from '@/components/page-wrapper';
+import { LoadingProvider } from '@/context/loading-context';
+import { PageLoader } from '@/components/page-loader';
 
 const neueMontreal = localFont({
   src: [
@@ -53,6 +55,10 @@ export default function RootLayout({
           } as React.CSSProperties
         }
       >
+        {/* <LoadingProvider>
+          <PageLoader />
+          
+        </LoadingProvider> */}
         <PageWrapper>{children}</PageWrapper>
       </body>
     </html>

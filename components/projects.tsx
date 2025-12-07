@@ -1,39 +1,42 @@
 'use client';
 
 import { Project } from './project';
+// import { Project } from './project2';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { SplitText } from 'gsap/SplitText';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { projects } from '@/data/projects';
 
-gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export function Projects() {
+  const [scroll, setScroll] = useState({
+    amountToScroll: 0,
+    height: 0,
+  });
   const containerRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   useGSAP(() => {
-    if (!containerRef.current) return;
-
-    const ammountToScroll =
-      projectsRef.current?.scrollWidth - containerRef.current?.offsetWidth || 0;
+    if (!scroll.amountToScroll) return;
 
     ScrollTrigger.normalizeScroll(true);
 
     gsap.to(projectsRef.current, {
-      x: -ammountToScroll,
+      x: -scroll.amountToScroll,
       ease: 'none',
       scrollTrigger: {
         trigger: containerRef.current,
         start: 'top top',
-        end: () => `+=${ammountToScroll}`,
+        end: () => `+=${scroll.amountToScroll}`,
         scrub: 1,
         pin: true,
         pinType: 'transform',
       },
     });
-  }, []);
+  }, [scroll.amountToScroll]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,50 +48,43 @@ export function Projects() {
     };
   }, []);
 
+  useEffect(() => {
+    const projectSrollWidth = projectsRef.current?.scrollWidth || 0;
+    const containerWidth = containerRef.current?.offsetWidth || 0;
+    const totalScrollWidth = projectSrollWidth - containerWidth;
+
+    setScroll({
+      amountToScroll: totalScrollWidth,
+      height: window.innerHeight + totalScrollWidth,
+    });
+  }, []);
+
   return (
     <div
-      className="min-h-dvh"
       style={{
-        height: projects.length * 100 - 53 + 'dvw',
+        height: scroll.height + 'px',
       }}
     >
       <div className="projects" ref={containerRef}>
-        <h2 className="text-[10.5vw] leading-[10vw] font-bold uppercase pt-[10dvh]">
+        <h2
+          className="text-[10.5vw] leading-[10vw] font-bold uppercase pt-[10dvh] pb-20"
+          ref={titleRef}
+        >
           Projects
         </h2>
-        <div className="project-wrapper flex z-10" ref={projectsRef}>
+        <div
+          className="project-wrapper h-full flex z-10 gap-10 pl-[20vw]"
+          ref={projectsRef}
+        >
           {projects.map((project, index) => (
-            <Project key={index} {...project} index={index} />
+            <Project
+              key={index}
+              {...{ ...project, isFirst: index === 0 }}
+              index={index}
+            />
           ))}
         </div>
       </div>
     </div>
   );
 }
-
-const projects = [
-  {
-    title: 'New Museum',
-    description:
-      'Redesigned and built by Athletics to enhance their digital storytelling capabilities with a focus on exhibition and live events. Built with Next.js on WPVIP.',
-    imageUrl: '/video/nm-capture-optimized.mp4',
-  },
-  {
-    title: 'Athletics',
-    imageUrl: '/video/athletics-capture-optimized.mp4',
-    description:
-      'A complete redesign and rebuild of Athletics’ agency website to better showcase their work and capabilities. Built with Next.js.',
-  },
-  {
-    title: 'New York Review of Books',
-    description:
-      'A complete redesign and rebuild of the NYRB website to better serve their 200k users and 60+ year archive.',
-    imageUrl: '/video/nyrb-optimized.mp4',
-  },
-  {
-    title: 'The Counter',
-    description:
-      'The Counter needed a system that could elevate their storytelling in food journalism. Collaborating with Athletics, I helped build a custom CMS and front-end experience to bring their stories to life.',
-    imageUrl: '/video/the-counter-optimized.mp4',
-  },
-];
