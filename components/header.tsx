@@ -65,8 +65,10 @@ export function Header({
               menu
             </button>
           </div>
-          <div className="w-1/3 flex justify-center uppercase font-bold">
-            <Link href="/">BW</Link>
+          <div className="w-1/3 flex justify-center uppercase">
+            <div className="bg-accent px-2 text-black">
+              <Link href="/">BRITTON WALKER</Link>
+            </div>
           </div>
           <div className="w-1/3 flex items-center gap-6 justify-end">
             <a href="" className="uppercase hidden md:inline-block">
@@ -74,10 +76,8 @@ export function Header({
             </a>
             <button
               onClick={handleMood}
-              className="px-3 py-1 bg-accent text-background rounded-full leading-[1em] inline-flex items-center cursor-pointer uppercase text-xl"
-            >
-              Vibe
-            </button>
+              className="px-3 py-1 bg-accent text-background rounded-full leading-[1em] inline-flex items-center cursor-pointer uppercase text-xl w-6 h-6"
+            ></button>
           </div>
         </div>
         <div className="absolute left-0 pl-8 top-0 w-[30vw] h-dvh z-0">

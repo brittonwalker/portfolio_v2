@@ -7,21 +7,20 @@ import { Video } from './video';
 export function Process() {
   return (
     <section className="" id="process">
-      <div className="flex items-end pt-[20dvh] pb-[10dvh] gap-20">
-        <h2 className="text-[10.5vw] leading-[8vw] font-bold uppercase">
+      <div className="flex items-end pt-10 pb-10 md:pt-[20dvh] md:pb-[10dvh] gap-20">
+        <h2 className="text-section-heading leading-section-heading font-bold uppercase">
           How I Work
         </h2>
-        <div className="w-[15vw] mx-auto">{/* <Gears /> */}</div>
       </div>
-      <div className="bg-foreground rounded-3xl p-4">
-        <div className="grid grid-cols-12 gap-6 relative overflow-hidden pt-10 pb-14">
-          <div className="col-span-3 flex justify-center items-center">
+      <div className="bg-foreground rounded-3xl p-2 md:p-4">
+        <div className="grid md:grid-cols-12 gap-6 relative overflow-hidden py-4 md:pt-10 md:pb-14">
+          <div className="md:col-span-3 flex justify-center items-center">
             <div className="w-[10vw] mx-auto">
               <Thinker />
             </div>
           </div>
-          <div className="col-span-8 col-start-4">
-            <p className="text-[2.185vw] leading-[2.7vw] text-pretty text-safe">
+          <div className="md:col-span-8 md:col-start-4">
+            <p className="text-[clamp(28px,2.185vw,2.185vw)] leading-[1.2em] text-pretty text-safe">
               For good work to happen, we must create a wholistic system
               informed by engineering constraints, strategic goals, and empathic
               design. We&apos;re not making pretty pictures, we&apos;re building
@@ -36,22 +35,24 @@ export function Process() {
             {processSteps.map(({ title, description }, index) => (
               <div
                 key={`process-step-${index}`}
-                className="grid grid-cols-12 gap-6 py-10 relative overflow-hidden"
+                className="grid md:grid-cols-12 gap-6 py-10 relative overflow-hidden"
               >
-                <div className="col-span-3">
+                <div className="md:col-span-3">
                   <div className="flex justify-between">
-                    <p className="text-[2.185vw]">
+                    <p className="text-[clamp(18px,2.185vw,2.185vw)] leading-[1.2em]">
                       {String(index + 1).padStart(2, '0')}
                     </p>
                   </div>
                 </div>
-                <div className="col-span-6 col-start-4">
-                  <h3 className="text-[2.185vw] mb-6">{title}</h3>
-                  <div className="max-w-[880px]">
+                <div className="md:col-span-6 md:col-start-4">
+                  <h3 className="text-[clamp(28px,2.185vw,2.185vw)] leading-[1.2em] mb-6 text-balance">
+                    {title}
+                  </h3>
+                  <div className="text-xl md:text-2xl max-w-[880px]">
                     <p>{description}</p>
                   </div>
                 </div>
-                <div className="col-span-3">
+                <div className="hidden md:col-span-3">
                   {/* <Video src="/video/process.webm" /> */}
                 </div>
               </div>

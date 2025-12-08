@@ -6,9 +6,9 @@ import Link from 'next/link';
 export function Fun() {
   return (
     <section className="" id="process">
-      <div className="flex items-end pt-[20dvh] pb-[10dvh] gap-20">
-        <h2 className="text-[10.5vw] leading-[8vw] font-bold uppercase">
-          Fun Stuff
+      <div className="flex items-end pt-10 pb-10 md:pt-[20dvh] md:pb-[10dvh] gap-20">
+        <h2 className="text-section-heading leading-section-heading font-bold uppercase">
+          Fun
         </h2>
       </div>
       <div className="grid grid-cols-4">

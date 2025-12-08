@@ -53,10 +53,10 @@ export function IntroText() {
 
   return (
     <section
-      className="text-[max(21px,3vw)] leading-[4vw] py-[20dvh] relative"
+      className="md:text-[max(21px,3vw)] md:leading-[4vw] py-10 md:py-[20dvh] relative"
       ref={containerRef}
     >
-      <div className="text-container max-w-[80vw] mx-auto">
+      <div className="text-container md:max-w-[80vw] mx-auto">
         <p
           ref={(el) => {
             if (el) textRefs.current[0] = el;
@@ -89,15 +89,15 @@ export function IntroText() {
           </p>
         </div>
       </div>
-      <div className="fixed bottom-0 right-0">
+      <div className="fixed bottom-0 right-0 pointer-events-none">
         <div
-          className="aspect-square w-[10dvw] bg-black p-1 rounded-sm border border-current transition-all duration-300"
+          className="aspect-square w-[20dvw] transition-all duration-300"
           style={{
-            clipPath: showGif ? 'inset(0%)' : 'inset(0% 0% 100% 0%)',
+            clipPath: showGif ? 'inset(0%)' : 'inset(100% 0% 0% 0%)',
           }}
         >
           <video
-            src={'/video/bboys-fun.webm'}
+            src={'/video/bboys-ocean.webm'}
             autoPlay
             loop
             muted
