@@ -1,24 +1,30 @@
+'use client';
+
 import { Thinker } from './icons/thinker';
-import { Systems } from './icons/systems';
+import { Gears } from './icons/gears';
+import { Video } from './video';
 
 export function Process() {
   return (
-    <section className="min-h-dvh">
+    <section className="" id="process">
       <div className="flex items-end pt-[20dvh] pb-[10dvh] gap-20">
-        <h2 className="text-[10.5vw] leading-[10vw] font-bold uppercase">
+        <h2 className="text-[10.5vw] leading-[8vw] font-bold uppercase">
           How I Work
         </h2>
-        <div className="w-[15vw] mx-auto">
-          <Thinker />
-        </div>
+        <div className="w-[15vw] mx-auto">{/* <Gears /> */}</div>
       </div>
-      <div className="bg-primary rounded-3xl p-4">
+      <div className="bg-foreground rounded-3xl p-4">
         <div className="grid grid-cols-12 gap-6 relative overflow-hidden pt-10 pb-14">
+          <div className="col-span-3 flex justify-center items-center">
+            <div className="w-[10vw] mx-auto">
+              <Thinker />
+            </div>
+          </div>
           <div className="col-span-8 col-start-4">
-            <p className="text-[2.185vw] leading-[2.7vw] text-pretty">
+            <p className="text-[2.185vw] leading-[2.7vw] text-pretty text-safe">
               For good work to happen, we must create a wholistic system
               informed by engineering constraints, strategic goals, and empathic
-              design. We&apos;re not making pretty pictures, we're building
+              design. We&apos;re not making pretty pictures, we&apos;re building
               things people actually use. Collaboration and shared understanding
               bridge the gap to create work that feels whole, intentional, and
               reliable.
@@ -26,7 +32,7 @@ export function Process() {
           </div>
         </div>
         <div className="bg-background rounded-2xl p-4">
-          <div className="flex flex-col divide-y divide-white/10">
+          <div className="flex flex-col divide-y divide-foreground">
             {processSteps.map(({ title, description }, index) => (
               <div
                 key={`process-step-${index}`}
@@ -41,10 +47,12 @@ export function Process() {
                 </div>
                 <div className="col-span-6 col-start-4">
                   <h3 className="text-[2.185vw] mb-6">{title}</h3>
-                  <p>{description}</p>
+                  <div className="max-w-[880px]">
+                    <p>{description}</p>
+                  </div>
                 </div>
-                <div className="col-span-2">
-                  <div className="w-[10vw] mx-auto">{/* <Systems /> */}</div>
+                <div className="col-span-3">
+                  {/* <Video src="/video/process.webm" /> */}
                 </div>
               </div>
             ))}

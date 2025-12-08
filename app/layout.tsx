@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 import { PageWrapper } from '@/components/page-wrapper';
+import { colors } from '@/lib/colors';
 import { LoadingProvider } from '@/context/loading-context';
 import { PageLoader } from '@/components/page-loader';
 
@@ -44,16 +45,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      style={
+        {
+          '--background': '#0a0a0a',
+          '--foreground': '#f5f5f5',
+          '--accent': '#3dbd5d',
+          '--safe': '#3dbd5d',
+        } as React.CSSProperties
+      }
+    >
       <body
         className={`${neueMontreal.variable} ${radioGrotesk.variable} antialiased transition-colors duration-300 bg-foreground text-background`}
-        style={
-          {
-            '--background': '#0a0a0a',
-            '--foreground': '#f5f5f5',
-            '--accent-color': '#ff6f61',
-          } as React.CSSProperties
-        }
       >
         {/* <LoadingProvider>
           <PageLoader />

@@ -4,19 +4,23 @@ import { useState, useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
+import { Canvas } from './canvas';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
 export function First() {
-  const [duration] = useState(1);
+  const [duration] = useState(0.8);
   const messageRefs = useRef<HTMLDivElement[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const tl = gsap.timeline({
-      paused: true,
-      defaults: { ease: 'power1.in', duration: duration },
+      defaults: {
+        ease: 'power1.in',
+        duration: duration,
+      },
     });
 
     const lines = messageRefs.current.map((ref) => {
@@ -54,25 +58,23 @@ export function First() {
         });
       }
     });
-
-    tl.play();
   }, [duration]);
 
-  useGSAP(() => {
-    if (!containerRef.current) return;
-    const element = containerRef.current;
-    gsap.to(element, {
-      opacity: 0,
-      yPercent: -30,
-      duration: 1,
-      scrollTrigger: {
-        trigger: element,
-        start: 'center center',
-        end: 'bottom top',
-        scrub: true,
-      },
-    });
-  }, []);
+  // useGSAP(() => {
+  //   if (!containerRef.current) return;
+  //   const element = containerRef.current;
+  //   gsap.to(element, {
+  //     opacity: 0,
+  //     yPercent: -30,
+  //     duration: 1,
+  //     scrollTrigger: {
+  //       trigger: element,
+  //       start: 'center center',
+  //       end: 'bottom top',
+  //       scrub: true,
+  //     },
+  //   });
+  // }, []);
 
   const messages = [
     ['BRITTON', 'WALKER'],
@@ -80,7 +82,13 @@ export function First() {
   ];
 
   return (
-    <div className="h-svh flex items-center">
+    <div className="min-h-svh flex items-center relative">
+      <div
+        className="absolute top-0 bottom-0 right-0 left-0 w-full h-full"
+        ref={canvasRef}
+      >
+        <Canvas />
+      </div>
       <div
         className="text-[10.5vw] leading-[10vw] font-bold uppercase relative w-full"
         ref={containerRef}
@@ -88,7 +96,7 @@ export function First() {
         {messages.map(([line1, line2], index) => (
           <div
             key={index}
-            className="flex flex-col w-full absolute -translate-y-[50%] opacity-0"
+            className="pointer-events-none flex flex-col w-full absolute -translate-y-[50%] opacity-0 p-8"
             ref={(el) => {
               if (el) messageRefs.current[index] = el;
             }}

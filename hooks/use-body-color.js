@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 
 export default function useBodyColor() {
   const [colors, setColors] = useState({
-    background: '#000000',
-    foreground: '#ffffff',
+    background: '#1a1a1a',
+    foreground: '#f5f5f5',
+    accent: '#3dbd5d',
   });
 
   useEffect(() => {
@@ -15,6 +16,9 @@ export default function useBodyColor() {
           ),
           foreground: getComputedStyle(mutation.target).getPropertyValue(
             '--foreground'
+          ),
+          accent: getComputedStyle(mutation.target).getPropertyValue(
+            '--accent'
           ),
         });
       }

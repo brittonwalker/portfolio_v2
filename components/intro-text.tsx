@@ -56,7 +56,7 @@ export function IntroText() {
       className="text-[max(21px,3vw)] leading-[4vw] py-[20dvh] relative"
       ref={containerRef}
     >
-      <div className="text-container pr-[20%]">
+      <div className="text-container max-w-[80vw] mx-auto">
         <p
           ref={(el) => {
             if (el) textRefs.current[0] = el;
@@ -66,7 +66,7 @@ export function IntroText() {
           <span
             onMouseEnter={() => setShowGif(true)}
             onMouseLeave={() => setShowGif(false)}
-            className="border-b"
+            className="border-b-2 border-foreground"
           >
             Britton
           </span>
@@ -89,7 +89,7 @@ export function IntroText() {
           </p>
         </div>
       </div>
-      <div className="absolute top-0 right-[5%]">
+      <div className="fixed bottom-0 right-0">
         <div
           className="aspect-square w-[10dvw] bg-black p-1 rounded-sm border border-current transition-all duration-300"
           style={{

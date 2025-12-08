@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useLenis, ReactLenis } from 'lenis/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { Header } from './header-two';
+import { Header } from './header';
 import { useLoading } from '@/context/loading-context';
 
 export function PageWrapper({
@@ -45,7 +45,8 @@ export function PageWrapper({
   return (
     <ReactLenis root>
       <Header menuOpen={menuOpen} setMenuOpenAction={setMenuOpen} />
-      <div className="page-wrapper relative bg-background text-foreground p-8 overflow-hidden">
+
+      <div className="page-wrapper relative bg-background text-foreground overflow-hidden duration-1000 ease-in-out top-0 transition-transform transition-top">
         {children}
       </div>
     </ReactLenis>

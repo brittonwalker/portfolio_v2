@@ -1,12 +1,6 @@
 export function Systems() {
   return (
-    <svg
-      width="243"
-      height="221"
-      viewBox="0 0 243 221"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 243 221" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect
         x="2.5"
         y="2.5"

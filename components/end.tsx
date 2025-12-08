@@ -11,30 +11,14 @@ export function End() {
   const container = useRef<HTMLElement>(null);
   const message = useRef(null);
 
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container.current,
-        start: 'top center',
-        end: 'center center',
-        scrub: true,
-      },
-    });
-    tl.to(message.current, {
-      y: 0,
-      delay: 2,
-    });
-  });
-
   return (
-    <section className="end min-h-dvh flex flex-col" ref={container}>
-      <div className="ml-auto max-w-[600px] mt-auto mb-[15dvh] text-[22px]">
+    <section className="end min-h-dvh flex flex-col relative" ref={container}>
+      <div className="ml-auto max-w-[600px] my-auto text-[22px]">
         <p className="text-pretty">
-          In my free time, I go to the cinema every sunday and I love to read. I
-          drink two cappuccinos a day, every day. I stan Swiss design, Snoopy,
-          Bruce Lee, leopard print, and revolutionary thinkers. I hate overhead
-          lighting and the doctor who said I can't eat a pint of ice cream every
-          day.
+          I go to the cinema every sunday and I love to read. I drink two
+          cappuccinos a day, every day. I stan Swiss design, Snoopy, Bruce Lee,
+          leopard print, and revolutionary thinkers. I hate overhead lighting
+          and the doctor who said I can't eat a pint of ice cream every day.
         </p>
         <p className="text-pretty mt-[1em]">
           I play in the world renowned Brooklyn punk band B Boys. I'm a martial
@@ -43,27 +27,26 @@ export function End() {
         </p>
         <p className="text-pretty mt-[1em]">I'm the worlds fastest swimmer.</p>
       </div>
-      <div
-        className="translate-y-full flex items-end justify-between"
-        ref={message}
-      >
-        <h2 className="text-[10.5vw] leading-[10vw] font-bold uppercase ">
-          Thank You
-        </h2>
-        <div className="flex gap-4">
-          <a href="https://github.com/brittonwalker/" target="_blank">
-            Github
-          </a>
-          <a href="https://www.linkedin.com/in/britton-walker/" target="_blank">
-            LinkedIn
-          </a>
-          <a
-            href="mailto:bwalker1801@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Email Me
-          </a>
+      <div className="absolute left-0 right-0 bottom-0">
+        <div className="flex items-end justify-end pb-8 px-8">
+          <div className="flex gap-4 items-end">
+            <a href="https://github.com/brittonwalker/" target="_blank">
+              Github
+            </a>
+            <a
+              href="https://www.linkedin.com/in/britton-walker/"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="mailto:bwalker1801@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Email Me
+            </a>
+          </div>
         </div>
       </div>
     </section>
