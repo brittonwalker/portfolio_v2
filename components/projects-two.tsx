@@ -31,27 +31,25 @@ export function ProjectsTwo() {
               }
             }}
           >
-            <div className="col-span-4">
-              <div className="flex justify-evenly gap-4">
-                <p className="number mr-auto text-[2.185vw]">
+            <div className="col-span-4 ">
+              <div className="flex flex-col gap-4 text-[3vw] leading-[3vw]">
+                <p className="number mr-auto inline-block">
                   {String(index + 1).padStart(2, '0')}
                 </p>
-                <div className="w-[640px] max-w-full p-1 border border-accent mr-auto">
-                  <Video src={project.imageUrl} />
-                </div>
+                <h3 className="w-full text-balance">{project.title}</h3>
               </div>
             </div>
-            <div className="col-span-3">
-              <h3 className="text-[3vw] leading-[3vw] text-balance">
-                {project.title}
-              </h3>
-            </div>
             <div className="col-span-5">
-              <div className="pl-4 max-w-[500px] mx-auto">
+              <div className="max-w-[500px]">
                 <p>{project.description}</p>
                 <div className="mt-6">
                   <Button url={project.link}>Visit Site</Button>
                 </div>
+              </div>
+            </div>
+            <div className="col-span-3">
+              <div className="w-[640px] max-w-full p-1 border border-accent mr-auto">
+                <Video src={project.imageUrl} />
               </div>
             </div>
           </div>

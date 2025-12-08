@@ -51,11 +51,11 @@ export function Windows() {
           y="2"
           width="770"
           height="465"
-          fill="var(--foreground)"
+          fill="var(--accent)"
           stroke="var(--background)"
           strokeWidth="4"
         />
-        <circle cx="56" cy="36" r="10" fill="#34A853" />
+        <circle cx="56" cy="36" r="10" fill="var(--background)" />
         <circle
           cx="92"
           cy="36"
@@ -163,11 +163,11 @@ export function Windows() {
           y="2"
           width="770"
           height="465"
-          fill="var(--foreground)"
+          fill="var(--accent)"
           stroke="var(--background)"
           strokeWidth="4"
         />
-        <circle cx="56" cy="36" r="10" fill="#34A853" />
+        <circle cx="56" cy="36" r="10" fill="var(--background)" />
         <circle
           cx="92"
           cy="36"
@@ -275,11 +275,11 @@ export function Windows() {
           y="2"
           width="770"
           height="465"
-          fill="var(--foreground)"
+          fill="var(--accent)"
           stroke="var(--background)"
           strokeWidth="4"
         />
-        <circle cx="56" cy="36" r="10" fill="#34A853" />
+        <circle cx="56" cy="36" r="10" fill="var(--background)" />
         <circle
           cx="92"
           cy="36"

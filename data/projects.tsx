@@ -7,19 +7,20 @@ type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'New Museum',
-    description:
-      'Redesigned and built by Athletics to enhance their digital storytelling capabilities with a focus on exhibition and live events. Built with Next.js on WPVIP.',
-    imageUrl: '/video/nm-capture-optimized.mp4',
-    link: 'https://www.newmuseum.org/',
-  },
-  {
     title: 'Athletics',
     imageUrl: '/video/athletics-capture-optimized.mp4',
     description:
       'A complete redesign and rebuild of Athletics’ agency website to better showcase their work and capabilities. Built with Next.js.',
     link: 'https://athleticsnyc.com/',
   },
+  {
+    title: 'New Museum',
+    description:
+      'Redesigned and built by Athletics to enhance their digital storytelling capabilities with a focus on exhibition and live events. Built with Next.js on WPVIP.',
+    imageUrl: '/video/nm-capture-optimized.mp4',
+    link: 'https://www.newmuseum.org/',
+  },
+
   {
     title: 'New York Review of Books',
     description:
