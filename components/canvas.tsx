@@ -35,6 +35,7 @@ function Scene({ isVisible }: { isVisible: boolean }) {
         () => new THREE.Vector2(-1, -1)
       ),
     },
+    uMouse: { value: new THREE.Vector2(-1, -1) },
     uClickTimes: { value: new Float32Array(MAX_CLICKS) },
     uShapeType: { value: SHAPE_MAP[shapeType] ?? 0 },
     uPixelSize: { value: pixelSize },
@@ -69,6 +70,30 @@ function Scene({ isVisible }: { isVisible: boolean }) {
     return () => canvas.removeEventListener('pointerdown', handlePointerDown);
   }, [gl]);
 
+  useEffect(() => {
+    const canvas = gl.domElement;
+    // Update mouse uniform on pointer move
+    const handlePointerMove = (e: PointerEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      const fx = (e.clientX - rect.left) * (canvas.width / rect.width);
+      const fy =
+        (rect.height - (e.clientY - rect.top)) * (canvas.height / rect.height);
+      uniforms.current.uMouse.value.set(fx, fy);
+    };
+
+    // Reset mouse position when pointer leaves canvas
+    const handlePointerLeave = () => {
+      uniforms.current.uMouse.value.set(-1, -1);
+    };
+
+    canvas.addEventListener('pointermove', handlePointerMove);
+    canvas.addEventListener('pointerleave', handlePointerLeave);
+    return () => {
+      canvas.removeEventListener('pointermove', handlePointerMove);
+      canvas.removeEventListener('pointerleave', handlePointerLeave);
+    };
+  }, [gl]);
+
   useFrame((state) => {
     if (!isVisible) return;
     uniforms.current.uTime.value = state.clock.elapsedTime;
@@ -89,7 +114,9 @@ function Scene({ isVisible }: { isVisible: boolean }) {
 }
 
 export function Canvas() {
-  const [containerRef, isInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [containerRef, isInView] = useInView<HTMLDivElement>({
+    threshold: 0.1,
+  });
 
   return (
     <div ref={containerRef} className="w-full h-full">

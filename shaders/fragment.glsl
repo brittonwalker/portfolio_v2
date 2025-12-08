@@ -2,7 +2,7 @@ precision highp float;
 
 uniform vec3  uColor; // Viewport resolution (pixels)
 uniform vec2  uResolution;
-uniform vec4  uMouse;
+uniform vec2  uMouse;
 uniform float uTime;
 uniform float uPixelSize;
 
@@ -93,15 +93,12 @@ float fbm2(vec2 uv, float t)
 
 
 float maskCircle(vec2 p, float cov) {
-
     float r = sqrt(cov) * .25;
     float d = length(p - 0.5) - r;
     // cheap analytic AA
     float aa = 0.5 * fwidth(d);
     return cov * (1.0 - smoothstep(-aa, aa, d * 2.));
-    
 }
-
 
 float maskTriangle(vec2 p, vec2 id, float cov) {
     bool flip = mod(id.x + id.y, 2.0) > 0.5;
@@ -111,6 +108,7 @@ float maskTriangle(vec2 p, vec2 id, float cov) {
     float aa = fwidth(d);             // analytic pixel width
     return cov * clamp(0.5 - d/aa, 0.0, 1.0);
 }
+
 float maskDiamond(vec2 p, float cov) {
     float r = sqrt(cov) * 0.564;
     return step(abs(p.x - 0.49) + abs(p.y - 0.49), r);
@@ -148,7 +146,7 @@ void main() {
 
     for (int i = 0; i < MAX_CLICKS; ++i) {
         vec2 pos = uClickPos[i];
-        if (pos.x < 0.0) continue;           // “empty” slot
+        if (pos.x < 0.0) continue;           // "empty" slot
 
         vec2 cuv = (((pos - uResolution * .5 - cellPixelSize * .5) / (uResolution) )) * vec2(aspectRatio, 1.0);
 
@@ -159,6 +157,22 @@ void main() {
         float ring  = exp(-pow((r - waveR) / thickness, 2.0));
         float atten = exp(-dampT * t) * exp(-dampR * r);
         feed = max(feed, ring * atten);
+    }
+
+    /* Mouse hover effect ----------------------------------- */
+    if (uMouse.x >= 0.0 && uMouse.y >= 0.0) {
+        vec2 mouseUV = (((uMouse.xy - uResolution * .5 - cellPixelSize * .5) / (uResolution))) * vec2(aspectRatio, 1.0);
+        float mouseDist = distance(uv, mouseUV);
+
+        // Circular falloff
+        float falloff = exp(-mouseDist * 55.0);
+
+        // Animated noise at mouse position
+        vec3 noisePos = vec3((uv - mouseUV) * 15.0, uTime * 2.0);
+        float noise = vnoise(noisePos) * 0.5 + 0.5;  // [0,1]
+
+        // Combine noise with falloff
+        feed = max(feed, noise * falloff * 1.2);
     }
 
     float bayer = Bayer8(fragCoord / uPixelSize) - 0.5;
@@ -173,6 +187,6 @@ void main() {
     else                                   M = coverage;   // default = square
     /* ====================================================== */
 
-    vec3 color = uColor; 
+    vec3 color = uColor;
     fragColor = vec4(color, M);
 }
