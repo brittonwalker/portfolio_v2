@@ -15,17 +15,17 @@ export function End() {
     <section className="end min-h-dvh flex flex-col relative" ref={container}>
       <div className="ml-auto max-w-[600px] my-auto text-[22px]">
         <p className="text-pretty">
-          I go to the cinema every sunday and I love to read. I drink two
-          cappuccinos a day, every day. I stan Swiss design, Snoopy, Bruce Lee,
-          leopard print, and revolutionary thinkers. I hate overhead lighting
-          and the doctor who said I can't eat a pint of ice cream every day.
+          Cinema every Sunday. A lot of reading. Two cappuccinos a day, no
+          exceptions. I stan Swiss design, Snoopy, Bruce Lee, leopard print, and
+          revolutionary thinkers. I hate overhead lighting and the doctor who
+          said I can’t eat a pint of ice cream every day.
         </p>
         <p className="text-pretty mt-[1em]">
-          I play in the world renowned Brooklyn punk band B Boys. I'm a martial
-          artist and train and compete in Brazilian Jiu Jitsu. I'm early in my
-          career building a candlemaking empire.
+          I play in the world-renowned Brooklyn punk band B Boys. I train and
+          compete in Brazilian Jiu-Jitsu. I’m early in my career, building a
+          candle-making empire.
         </p>
-        <p className="text-pretty mt-[1em]">I'm the worlds fastest swimmer.</p>
+        <p className="text-pretty mt-[1em]">I'm the world's fastest swimmer.</p>
       </div>
       <div className="absolute left-0 right-0 bottom-0">
         <div className="flex items-end justify-end pb-8 px-8">
