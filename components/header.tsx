@@ -57,20 +57,27 @@ export function Header({
       <div className="header fixed inset-0 px-8 py-4 z-10 pointer-events-none">
         <div className="z-20 relative pointer-events-auto w-full flex justify-between items-center burger">
           <div className="w-1/3">
-            <button
+            {/* <button
               onClick={() => setMenuOpenAction(!menuOpen)}
               aria-label="Toggle menu"
               className="cursor-pointer pointer-events-auto uppercase"
             >
-              menu
-            </button>
-          </div>
-          <div className="w-1/3 flex justify-center uppercase">
-            <div className="bg-accent px-2 text-black">
-              <Link href="/">BRITTON WALKER</Link>
-            </div>
+              B.
+            </button> */}
+            <Link
+              href="/"
+              className="cursor-pointer pointer-events-auto uppercase"
+            >
+              B.
+            </Link>
           </div>
           <div className="w-1/3 flex items-center gap-6 justify-end">
+            <Link
+              href="/projects/athletics"
+              className="uppercase hidden md:inline-block"
+            >
+              Projects
+            </Link>
             <a href="" className="uppercase hidden md:inline-block">
               contact
             </a>
