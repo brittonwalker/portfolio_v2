@@ -28,7 +28,7 @@ export function End() {
         <p className="text-pretty mt-[1em]">I'm the world's fastest swimmer.</p>
       </div>
       <div className="absolute left-0 right-0 bottom-0">
-        <div className="flex items-end justify-end pb-8 px-8">
+        <div className="flex items-end justify-end pb-4 px-8">
           <div className="flex gap-4 items-end">
             <a href="https://github.com/brittonwalker/" target="_blank">
               Github
