@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "types/**/*.d.ts",
     ".next/dev/types/**/*.ts",
-    "app/lab/floating-a/page.jsx"
+    "app/lab/floating-a/page.jsx",
+    "hooks/use-sequencer.js"
   ],
   "exclude": ["node_modules"]
 }
