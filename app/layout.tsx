@@ -10,7 +10,12 @@ import { PageLoader } from '@/components/page-loader';
 const neueMontreal = localFont({
   src: [
     {
-      path: '../public/fonts/PP-Neue-Montreal/PPNeueMontreal-Regular.woff2',
+      path: '../public/fonts/PP-Neue-Montreal/PPNeueMontreal-Light.woff2',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/PP-Neue-Montreal/PPNeueMontreal-Medium.woff2',
       weight: '400',
       style: 'normal',
     },
@@ -57,13 +62,14 @@ export default function RootLayout({
       }
     >
       <body
-        className={`${neueMontreal.variable} ${radioGrotesk.variable} antialiased transition-colors duration-300 bg-foreground text-background`}
+        className={`${neueMontreal.variable} ${radioGrotesk.variable} antialiased transition-colors duration-300 bg-background text-foreground`}
       >
-        {/* <LoadingProvider>
-          <PageLoader />
-          
-        </LoadingProvider> */}
-        <PageWrapper>{children}</PageWrapper>
+        <LoadingProvider>
+          {/* <PageLoader />  */}
+          <PageWrapper>{children}</PageWrapper>
+        </LoadingProvider>
+
+        {/* <PageWrapper>{children}</PageWrapper> */}
       </body>
     </html>
   );
