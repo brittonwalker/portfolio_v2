@@ -1,0 +1,78 @@
+.swiss {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    'top-left top-right'
+    'bottom-left bottom-right';
+  grid-template-rows: auto auto;
+
+  .swiss-top-left {
+    grid-area: top-left;
+    align-self: start;
+    justify-self: start;
+  }
+
+  .swiss-top-right {
+    grid-area: top-right;
+    align-self: start;
+    justify-self: end;
+  }
+
+  .swiss-bottom-left {
+    grid-area: bottom-left;
+    align-self: end;
+    justify-self: start;
+  }
+
+  .swiss-bottom-right {
+    grid-area: bottom-right;
+    align-self: end;
+    justify-self: start;
+  }
+
+  .heading {
+    @apply text-[clamp(32px,12vw,1000px)] -tracking-[.01em] leading-[.9em] text-pretty;
+  }
+}
+
+.parallax-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+
+  .grid-item {
+    grid-column: 4 / span 1;
+    max-width: 30vw;
+    width: 30vw;
+
+    > * {
+      align-self: center;
+    }
+
+    &:nth-child(2) {
+      width: 25vw;
+      grid-column: 1 / span 5;
+    }
+    &:nth-child(3) {
+      width: 17vw;
+      grid-column: 5 / span 1;
+    }
+    &:nth-child(4) {
+      width: 19vw;
+      grid-column: 2 / span 3;
+    }
+    &:nth-child(5) {
+      width: 22vw;
+      grid-column: 4 / span 2;
+    }
+  }
+}
+
+.project-card__asset {
+  clip-path: polygon(30% 50%, 70% 50%, 70% 50%, 30% 50%);
+  transition: clip-path 1s cubic-bezier(0.87, 0, 0.13, 1);
+
+  &.reveal {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}

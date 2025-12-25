@@ -1,6 +1,13 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
+import { useLenis } from 'lenis/react';
 
 type LoadingContextType = {
   isLoading: boolean;
@@ -17,7 +24,6 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Wait for fonts and initial page load
     Promise.all([
       document.fonts.ready,
       new Promise((resolve) => {
@@ -33,7 +39,7 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
         setIsLoading(false);
         // Small delay to let the loader exit animation complete
         setTimeout(() => setIsReady(true), 500);
-      }, 1000);
+      }, 500);
     });
   }, []);
 

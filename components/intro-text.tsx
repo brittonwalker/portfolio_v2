@@ -11,6 +11,7 @@ gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 export function IntroText() {
   const [showGif, setShowGif] = useState(false);
   const textRefs = useRef<HTMLParagraphElement[]>([]);
+  const hoverRef = useRef<HTMLSpanElement>(null);
   const splitRefs = useRef<SplitText[]>([]);
   const containerRef = useRef<HTMLElement>(null);
 
@@ -19,6 +20,7 @@ export function IntroText() {
       const split = new SplitText(textRefs.current, {
         type: 'lines',
         mask: 'lines',
+        linesClass: 'split-line',
       });
       split.lines.forEach((line) => {
         gsap.fromTo(
@@ -37,6 +39,12 @@ export function IntroText() {
       });
       splitRefs.current.push(split);
     }
+
+    return () => {
+      splitRefs.current.forEach((split) => split.revert());
+      splitRefs.current = [];
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   useEffect(() => {
@@ -51,9 +59,32 @@ export function IntroText() {
     };
   }, []);
 
+  useEffect(() => {
+    // Use querySelector as fallback if ref is lost
+    const hoverEl =
+      hoverRef.current ||
+      containerRef.current?.querySelector('[data-hover="name"]');
+    if (!hoverEl) return;
+
+    const handleMouseEnter = () => {
+      setShowGif(true);
+    };
+    const handleMouseLeave = () => {
+      setShowGif(false);
+    };
+
+    hoverEl.addEventListener('mouseenter', handleMouseEnter);
+    hoverEl.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      hoverEl.removeEventListener('mouseenter', handleMouseEnter);
+      hoverEl.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
   return (
     <section
-      className="md:text-[max(21px,3vw)] md:leading-[4vw] py-10 md:py-[20dvh] relative"
+      className="md:text-[max(21px,3vw)] md:leading-[1.2em] py-10 md:py-[20dvh] relative"
       ref={containerRef}
     >
       <div className="text-container md:max-w-[80vw] mx-auto">
@@ -64,9 +95,9 @@ export function IntroText() {
         >
           I&apos;m{' '}
           <span
-            onMouseEnter={() => setShowGif(true)}
-            onMouseLeave={() => setShowGif(false)}
             className="border-b-2 border-foreground"
+            ref={hoverRef}
+            data-hover="name"
           >
             Britton
           </span>

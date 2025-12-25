@@ -1,19 +1,13 @@
-import { First } from '@/components/first';
-import { ProjectsTwo } from '@/components/projects-two';
-import { IntroText } from '@/components/intro-text';
-import { Process } from '@/components/process';
-import { End } from '@/components/end';
-import { Fun } from '@/components/fun';
+import { Swiss } from '@/components/intros/swiss';
+import { MarqueeText } from '@/components/marquee-text';
+import { ProjectsLeft } from '@/components/projects/projects-left';
 
 export default function Home() {
   return (
     <main className="main">
-      <First />
-      <IntroText />
-      <ProjectsTwo />
-      <Process />
-      <Fun />
-      <End />
+      <Swiss />
+      <MarqueeText text="Selected Projects" />
+      <ProjectsLeft />
     </main>
   );
 }

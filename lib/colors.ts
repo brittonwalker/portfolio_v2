@@ -6,6 +6,12 @@ export const colors = [
     safe: '#3dbd5d',
   },
   {
+    background: '#f5f5f5',
+    foreground: '#0a0a0a',
+    accent: '#3dbd5d',
+    safe: '#3dbd5d',
+  },
+  {
     background: '#0a0a0a',
     foreground: '#f5f5f5',
     accent: '#f54123',

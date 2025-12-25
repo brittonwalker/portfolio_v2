@@ -61,16 +61,17 @@ export function Projects() {
 
   return (
     <div
+      className="projects-container pt-20 px-[30px]"
       style={{
         height: scroll.height + 'px',
       }}
     >
       <div className="projects" ref={containerRef}>
         <h2
-          className="text-[10.5vw] leading-[10vw] font-bold uppercase pt-[10dvh] pb-20"
+          className="text-[6.25vw] leading-[1.2] text-balance mb-10  top-[6.25vw]"
           ref={titleRef}
         >
-          Projects
+          Selected Projects
         </h2>
         <div
           className="project-wrapper h-full flex z-10 gap-10 pl-[20vw]"

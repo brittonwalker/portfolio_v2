@@ -8,7 +8,7 @@ export function Process() {
   return (
     <section className="" id="process">
       <div className="flex items-end pt-10 pb-10 md:pt-[20dvh] md:pb-[10dvh] gap-20">
-        <h2 className="text-section-heading leading-section-heading font-bold uppercase">
+        <h2 className="text-section-heading leading-section-heading uppercase">
           How I Work
         </h2>
       </div>
@@ -21,11 +21,11 @@ export function Process() {
           </div>
           <div className="md:col-span-8 md:col-start-4">
             <p className="text-[clamp(28px,2.185vw,2.185vw)] leading-[1.2em] text-pretty text-safe">
-              For good work to happen, we must create a wholistic system
-              informed by engineering constraints, strategic goals, and empathic
-              design. We&apos;re not making pretty pictures, we&apos;re building
-              things people actually use. Collaboration and shared understanding
-              bridge the gap to create work that feels whole, intentional, and
+              For good work to happen, we must create a holistic system informed
+              by engineering constraints, strategic goals, and empathic design.
+              We&apos;re not making pretty pictures, we&apos;re building things
+              people actually use. Collaboration and shared understanding bridge
+              the gap to create work that feels whole, intentional, and
               reliable.
             </p>
           </div>

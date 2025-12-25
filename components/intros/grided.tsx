@@ -7,6 +7,7 @@ import { SplitText } from 'gsap/SplitText';
 import { Canvas } from '../canvas';
 import { useLoading } from '@/context/loading-context';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { projects } from '@/data/projects';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
@@ -154,6 +155,18 @@ export function Grided() {
             </div>
           </div>
           <div className="relative pt-8" style={{ gridArea: 'bottom' }}>
+            <div className="pl-[30px]">
+              <p>Selected Projects</p>
+              <ul className="mt-4">
+                {projects.map((project) => (
+                  <li key={project.slug}>
+                    <a href={project.link} target="_blank" rel="noreferrer">
+                      {project.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <div
               className="absolute bg-white left-0 bottom-0 w-full h-[1px] opacity-0"
               ref={(el) => {
@@ -161,7 +174,7 @@ export function Grided() {
               }}
             ></div>
             <div
-              className="absolute bg-white left-0 bottom-0 w-[1px] h-full opacity-0"
+              className="absolute bg-white left-0 bottom-0 w-[1px] h-full opacity-0 pt-8"
               ref={(el) => {
                 if (el) lineRefs.current[3] = { el, direction: 'vertical' };
               }}

@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 import { Canvas } from './canvas';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useLoading } from '@/context/loading-context';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
@@ -90,7 +91,7 @@ export function First() {
         <Canvas />
       </div>
       <div
-        className="text-[10.5vw] leading-[10vw] font-bold uppercase relative w-full"
+        className="text-[10.5vw] leading-[10vw] uppercase relative w-full"
         ref={containerRef}
       >
         {messages.map(([line1, line2], index) => (

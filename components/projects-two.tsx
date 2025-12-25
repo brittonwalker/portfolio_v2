@@ -12,7 +12,7 @@ export function ProjectsTwo() {
   return (
     <section className="projects-two" id="projects">
       <div className="flex items-end pt-10 pb-10 md:pt-[20dvh] md:pb-[10dvh] gap-20">
-        <h2 className="text-section-heading leading-section-heading font-bold uppercase">
+        <h2 className="text-section-heading leading-section-heading uppercase">
           Projects*
         </h2>
         <div className="w-[15vw] mx-auto">
