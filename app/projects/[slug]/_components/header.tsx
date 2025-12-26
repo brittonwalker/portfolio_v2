@@ -8,7 +8,7 @@ export function Header({ project }: { project: Project }) {
       </div>
       <div className="grid grid-cols-12 gap-4">
         <div className="col-span-7 grid grid-cols-2 gap-4">
-          <div className="col-span-2 mb-20">
+          <div className="col-span-2 mb-10">
             Athletics is a top tier design and branding studio based in
             Brooklyn, NY. Spoiler alert, it's where I've forged my career. In
             2024, I collaborated with the whole team to refresh their website

@@ -14,12 +14,14 @@ export function ProjectsLeft() {
           padding: '0 6.25vw',
         }}
       >
-        {projects.map((project, index) => (
-          <ProjectCard key={project.slug} project={project} index={index} />
-        ))}
+        {projects
+          .filter((project) => project.slug)
+          .map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} />
+          ))}
         <a
           href="/projects"
-          className="text-sub-title leading-[1.1em] md:leading-[3vw] text-balance block text-center"
+          className="text-sub-title leading-[1.1em] md:leading-[3vw] text-balance block"
         >
           See Projects Index ↗
         </a>

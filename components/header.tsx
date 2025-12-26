@@ -72,10 +72,7 @@ export function Header({
             </Link>
           </div>
           <div className="w-1/3 flex items-center gap-6 justify-end">
-            <Link
-              href="/projects/athletics"
-              className="uppercase hidden md:inline-block"
-            >
+            <Link href="/projects" className="uppercase hidden md:inline-block">
               Projects
             </Link>
             <a href="" className="uppercase hidden md:inline-block">

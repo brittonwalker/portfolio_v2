@@ -4,9 +4,11 @@ import { Header } from './_components/header';
 
 // Generate static paths for all projects
 export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+  return projects
+    .filter((project) => project.slug)
+    .map((project) => ({
+      slug: project.slug!,
+    }));
 }
 
 // Optional: Generate metadata for each project
@@ -47,15 +49,7 @@ export default async function Page({
         <h1>{project.title}</h1>
         <p>{project.description}</p>
 
-        <div className="assets">
-          {project.assets.map((asset, i) =>
-            asset.type === 'video' ? (
-              <video key={i} src={asset.url} controls />
-            ) : (
-              <img key={i} src={asset.url} alt="" />
-            )
-          )}
-        </div>
+        <div className="assets"></div>
       </div>
     </div>
   );
