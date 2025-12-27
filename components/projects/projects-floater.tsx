@@ -13,7 +13,7 @@ export function ProjectsFloater() {
           <div
             key={project.slug}
             className={`project-card pt-8 top-[calc(6.25vw*2.4)] ${
-              gridCols[index + 1]
+              gridCols[(index + 1) as keyof typeof gridCols]
             } `}
           >
             <div className="aspect-[3/4]">

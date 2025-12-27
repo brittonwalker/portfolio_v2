@@ -25,24 +25,25 @@ export function ProjectsRow() {
               </div>
             </div>
             <div className="flex gap-3 mt-10 flex-nowrap">
-              {project.assets.map((asset, index) => (
-                <div key={index} className="max-h-[300px] aspect-video">
-                  {asset.type === 'image' ? (
-                    <img
-                      src={asset.url}
-                      className="h-full w-full object-cover"
-                    />
-                  ) : (
-                    <video
-                      src={asset.url}
-                      className="h-full w-full object-cover"
-                      muted
-                      loop
-                      autoPlay
-                    />
-                  )}
-                </div>
-              ))}
+              {project?.assets &&
+                project.assets.map((asset, index) => (
+                  <div key={index} className="max-h-[300px] aspect-video">
+                    {asset.type === 'image' ? (
+                      <img
+                        src={asset.url}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <video
+                        src={asset.url}
+                        className="h-full w-full object-cover"
+                        muted
+                        loop
+                        autoPlay
+                      />
+                    )}
+                  </div>
+                ))}
             </div>
           </div>
         ))}

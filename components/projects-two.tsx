@@ -43,13 +43,15 @@ export function ProjectsTwo() {
               <div className="max-w-[500px]">
                 <p>{project.description}</p>
                 <div className="mt-6">
-                  <Button url={project.link}>Visit Site</Button>
+                  {project?.link && (
+                    <Button url={project.link}>Visit Site</Button>
+                  )}
                 </div>
               </div>
             </div>
             <div className="md:col-span-3 order-2 md:order-none">
               <div className="w-full max-w-[640px] p-1 border border-accent mr-auto">
-                <Video src={project.imageUrl} />
+                {project.imageUrl && <Video src={project.imageUrl} />}
               </div>
             </div>
           </div>

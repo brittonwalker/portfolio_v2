@@ -29,7 +29,9 @@ export function Projects3() {
             >
               <div
                 className="border-t py-5"
-                ref={(el) => (topRefs.current[index] = el)}
+                ref={(el) => {
+                  if (el) topRefs.current[index] = el;
+                }}
               >
                 <h3 className="text-[clamp(28px,2.185vw,2.185vw)] leading-[1.2em] text-balance">
                   {String(index + 1).padStart(2, '0')} {title}

@@ -156,35 +156,42 @@ export function ProjectsScroller() {
             <div className="col-span-2 flex flex-col gap-y-20">
               {projects.map((project, index) => (
                 <div className="flex flex-col gap-4" key={project.slug}>
-                  {project.assets.map((imgUrl, imgIndex) => (
-                    <div key={imgIndex}>
-                      <div
-                        data-slug={project.slug}
-                        data-image-index={imgIndex}
-                        data-title={project.title}
-                        ref={(el) => setRef(el, project.slug, imgIndex)}
-                        className="relative"
-                        onClick={() => clickImage(project.slug, imgIndex)}
-                      >
-                        {imgUrl.type === 'video' ? (
-                          <video
-                            src={imgUrl.url}
-                            autoPlay
-                            loop
-                            muted
-                            className="w-full h-auto object-contain"
-                          />
-                        ) : (
-                          <Image
-                            src={imgUrl.url}
-                            alt={`${project.title} image ${imgIndex + 1}`}
-                            width={300}
-                            height={200}
-                          />
-                        )}
+                  {project?.assets &&
+                    project.assets.map((imgUrl, imgIndex) => (
+                      <div key={imgIndex}>
+                        <div
+                          data-slug={project.slug}
+                          data-image-index={imgIndex}
+                          data-title={project.title}
+                          ref={(el) => {
+                            if (el && project?.slug)
+                              setRef(el, project.slug, imgIndex);
+                          }}
+                          className="relative"
+                          onClick={() => {
+                            if (project.slug)
+                              clickImage(project.slug, imgIndex);
+                          }}
+                        >
+                          {imgUrl.type === 'video' ? (
+                            <video
+                              src={imgUrl.url}
+                              autoPlay
+                              loop
+                              muted
+                              className="w-full h-auto object-contain"
+                            />
+                          ) : (
+                            <Image
+                              src={imgUrl.url}
+                              alt={`${project.title} image ${imgIndex + 1}`}
+                              width={300}
+                              height={200}
+                            />
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               ))}
             </div>
@@ -252,38 +259,39 @@ export function ProjectsScroller() {
                 key={project.slug}
                 className="works-images-right absolute-full hidden flex xl:flex flex-col justify-end"
               >
-                {project.assets.map((asset, imgIndex) => (
-                  <div
-                    key={project.slug + imgIndex}
-                    className="works-image-right focus-image xl:absolute xl:bottom-0 xl:left-0 w-full xl:h-full hidden xl:flex justify-center items-end text-[8rem] text-white"
-                    style={{
-                      opacity:
-                        activeImage.projectSlug === project.slug &&
-                        activeImage.imageIndex === imgIndex
-                          ? 1
-                          : 0,
-                    }}
-                  >
-                    <div className="image relative w-full h-full">
-                      {asset.type === 'video' ? (
-                        <video
-                          src={asset.url}
-                          autoPlay
-                          loop
-                          muted
-                          className="w-full h-full object-contain object-center"
-                        />
-                      ) : (
-                        <Image
-                          src={asset.url}
-                          alt={`${project.title} image ${imgIndex + 1}`}
-                          fill
-                          className="lazy w-full h-full object-contain object-center"
-                        />
-                      )}
+                {project.assets &&
+                  project.assets.map((asset, imgIndex) => (
+                    <div
+                      key={`${project.slug || 'unknown'}-${imgIndex}`}
+                      className="works-image-right focus-image xl:absolute xl:bottom-0 xl:left-0 w-full xl:h-full hidden xl:flex justify-center items-end text-[8rem] text-white"
+                      style={{
+                        opacity:
+                          activeImage.projectSlug === project.slug &&
+                          activeImage.imageIndex === imgIndex
+                            ? 1
+                            : 0,
+                      }}
+                    >
+                      <div className="image relative w-full h-full">
+                        {asset.type === 'video' ? (
+                          <video
+                            src={asset.url}
+                            autoPlay
+                            loop
+                            muted
+                            className="w-full h-full object-contain object-center"
+                          />
+                        ) : (
+                          <Image
+                            src={asset.url}
+                            alt={`${project.title} image ${imgIndex + 1}`}
+                            fill
+                            className="lazy w-full h-full object-contain object-center"
+                          />
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             ))}
           </div>

@@ -86,7 +86,9 @@ export function BigScroller() {
           key={project.slug}
           project={project}
           active={activeProject === project.slug}
-          ref={(el) => transformRef(el, project.slug)}
+          ref={(el) => {
+            if (project.slug) transformRef(el, project.slug);
+          }}
         />
       ))}
     </section>
@@ -115,22 +117,23 @@ const Item = ({ project, active, ref }: ProjectProps) => {
         {project.title}
       </h3>
       <div className="absolute inset-0 grid parallax-grid">
-        {project.assets.map(({ url, type }, index) => (
-          <div key={index} className="grid-item">
-            {type === 'video' ? (
-              <video
-                src={url}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-auto object-cover"
-              />
-            ) : (
-              <img src={url} alt={`${project.title} image ${index + 1}`} />
-            )}
-          </div>
-        ))}
+        {project?.assets &&
+          project.assets.map(({ url, type }, index) => (
+            <div key={index} className="grid-item">
+              {type === 'video' ? (
+                <video
+                  src={url}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto object-cover"
+                />
+              ) : (
+                <img src={url} alt={`${project.title} image ${index + 1}`} />
+              )}
+            </div>
+          ))}
       </div>
     </div>
   );

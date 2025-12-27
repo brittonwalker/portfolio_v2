@@ -12,32 +12,33 @@ export function ProjectGrid() {
               gridArea: project.gridArea,
             }}
           >
-            {project.assets.map((asset, assetIndex) => {
-              if (assetIndex > 0) return null; // Show only the first asset for brevity
-              if (asset.type === 'video') {
-                return (
-                  <video
-                    key={assetIndex}
-                    src={asset.url}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-auto"
-                  />
-                );
-              } else if (asset.type === 'image') {
-                return (
-                  <img
-                    key={assetIndex}
-                    src={asset.url}
-                    alt={project.title}
-                    className="w-full h-auto"
-                  />
-                );
-              }
-              return null;
-            })}
+            {project?.assets &&
+              project.assets.map((asset, assetIndex) => {
+                if (assetIndex > 0) return null; // Show only the first asset for brevity
+                if (asset.type === 'video') {
+                  return (
+                    <video
+                      key={assetIndex}
+                      src={asset.url}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-auto"
+                    />
+                  );
+                } else if (asset.type === 'image') {
+                  return (
+                    <img
+                      key={assetIndex}
+                      src={asset.url}
+                      alt={project.title}
+                      className="w-full h-auto"
+                    />
+                  );
+                }
+                return null;
+              })}
           </div>
         ))}
       </div>

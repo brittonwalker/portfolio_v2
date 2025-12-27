@@ -1,19 +1,16 @@
 'use client';
 
-import { useRef } from 'react';
 import { button, useControls } from 'leva';
 import * as THREE from 'three';
 import { useLoader } from '@react-three/fiber';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import Step from './step';
 import StartButton from './start-button';
 import * as Tone from 'tone';
 import useSequencer from '../hooks/use-sequencer';
-import VolKnob from './vol-knob';
 
 import {
   OrbitControls,
-  useHelper,
   BakeShadows,
   SoftShadows,
   Center,
@@ -30,7 +27,7 @@ export default function Machine() {
     setBpm,
     resetTrack,
   } = useSequencer();
-  const directionalLightRef = useRef();
+  // const directionalLightRef = useRef(null);
   const machine = useLoader(GLTFLoader, '/model/808-merge-test.glb');
   const { nodes, materials } = machine;
 
@@ -69,7 +66,7 @@ export default function Machine() {
     }),
   });
 
-  useHelper(directionalLightRef, THREE.DirectionalLightHelper, 1);
+  // useHelper(directionalLightRef, THREE.DirectionalLightHelper, 1);
 
   const steps = [];
   for (let i = 1; i <= 16; i++) {
@@ -77,15 +74,15 @@ export default function Machine() {
       button: {
         castShadow: true,
         receiveShadow: true,
-        geometry: nodes[`step${i}`].geometry,
-        material: nodes[`step${i}`].material,
+        geometry: (nodes[`step${i}`] as THREE.Mesh).geometry,
+        material: (nodes[`step${i}`] as THREE.Mesh).material,
         position: nodes[`step${i}`].position,
       },
       light: {
         castShadow: true,
         receiveShadow: true,
-        geometry: nodes[`step${i}Light`].geometry,
-        material: nodes[`step${i}Light`].material,
+        geometry: (nodes[`step${i}Light`] as THREE.Mesh).geometry,
+        material: (nodes[`step${i}Light`] as THREE.Mesh).material,
         position: nodes[`step${i}`].position,
       },
     });
@@ -96,13 +93,7 @@ export default function Machine() {
       <OrbitControls makeDefault enableZoom={false} />
 
       <BakeShadows />
-      <SoftShadows
-        frustum={3.75}
-        size={50}
-        near={9.5}
-        samples={17}
-        rings={11}
-      />
+      <SoftShadows size={50} samples={17} />
 
       <directionalLight
         position={[0, 10, 10]}
@@ -126,7 +117,7 @@ export default function Machine() {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.soundSelector.geometry}
+          geometry={(nodes.soundSelector as THREE.Mesh).geometry}
           material={materials.knobBase}
         />
 
@@ -134,8 +125,8 @@ export default function Machine() {
           buttonProps={{
             castShadow: true,
             receiveShadow: true,
-            geometry: nodes.start.geometry,
-            material: nodes.start.material,
+            geometry: (nodes.start as THREE.Mesh).geometry,
+            material: (nodes.start as THREE.Mesh).material,
             position: nodes.start.position,
           }}
           onClick={() => {
@@ -146,7 +137,8 @@ export default function Machine() {
         />
 
         {steps.map((step, index) => {
-          const isActive = tracks[currentTrack].steps[index];
+          const isActive =
+            tracks[currentTrack as keyof typeof tracks].steps[index];
           return (
             <Step
               key={index}

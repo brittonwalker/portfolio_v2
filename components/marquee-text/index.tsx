@@ -52,7 +52,9 @@ export function MarqueeText({ text }: { text: string }) {
             <div
               key={i}
               className="inline-block animate-marquee text-[clamp(32px,6.25vw,1000px)] -tracking-[.01em] leading-[.9em] bg-foreground text-background py-5"
-              ref={(el) => (marqueeRefs.current[i] = el)}
+              ref={(el) => {
+                marqueeRefs.current[i] = el;
+              }}
             >
               {text}&nbsp;&nbsp;&nbsp;{text}&nbsp;&nbsp;&nbsp;{text}
               &nbsp;&nbsp;&nbsp;
