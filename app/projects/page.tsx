@@ -25,7 +25,7 @@ export default function Home() {
   };
 
   return (
-    <main className="main pt-[20vh] px-8">
+    <main className="main pt-[20vh] px-4 lg:px-8 relative">
       <div className="flex justify-between pb-10 border-b">
         <h1 className="text-[10vw] leading-[90%] ">Projects</h1>
         <div className="flex gap-4 items-end text-base leading-[1em]">
@@ -48,31 +48,84 @@ export default function Home() {
           </button>
         </div>
       </div>
-
-      <div className="grid grid-cols-12 pt-20">
-        {listType === 'list' && (
-          <div className="col-span-12 grid grid-cols-12 opacity-80 py-4">
-            <div className="col-span-1">Year</div>
-            <div className="col-span-3">Client</div>
-            <div className="col-span-3">Design</div>
-            <div className="col-span-4">Role</div>
+      <div className="relative">
+        <div
+          className={`grid grid-cols-12 pt-10 lg:pt-20 ${
+            listType === 'list' ? '' : 'gap-4'
+          }`}
+        >
+          {listType === 'list' && (
+            <div className="col-span-12 grid-cols-12 opacity-80 py-2 hidden lg:grid">
+              <div className="col-span-2">Year</div>
+              <div className="col-span-3">Client</div>
+              <div className="col-span-3">Design</div>
+              <div className="col-span-4">Role</div>
+            </div>
+          )}
+          {projects
+            .filter(handleFilter)
+            .sort(handleSort)
+            .map((project, index, filteredProjects) => (
+              <ProjectItem
+                key={index}
+                project={project}
+                index={index}
+                variant={listType}
+                showYear={
+                  index === 0 ||
+                  project.year !== filteredProjects[index - 1]?.year
+                }
+              />
+            ))}
+        </div>
+        <div className="sticky bottom-0 inset-x-0 z-10 flex justify-center pb-8 mt-10 pointer-events-none">
+          <div className="bg-foreground text-background w-fit py-2 px-4 rounded-[8px] flex gap-4 text-sm pointer-events-auto">
+            <button
+              className="flex items-center gap-2 cursor-pointer"
+              onClick={() => setListType('selected')}
+              style={{
+                opacity: listType === 'selected' ? 1 : 0.3,
+              }}
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 21C4.45 21 3.97917 20.8042 3.5875 20.4125C3.19583 20.0208 3 19.55 3 19V5C3 4.45 3.19583 3.97917 3.5875 3.5875C3.97917 3.19583 4.45 3 5 3H19C19.55 3 20.0208 3.19583 20.4125 3.5875C20.8042 3.97917 21 4.45 21 5V19C21 19.55 20.8042 20.0208 20.4125 20.4125C20.0208 20.8042 19.55 21 19 21H5ZM5 19H8.325V15.675H5V19ZM10.325 19H13.675V15.675H10.325V19ZM15.675 19H19V15.675H15.675V19ZM5 13.675H8.325V10.325H5V13.675ZM10.325 13.675H13.675V10.325H10.325V13.675ZM15.675 13.675H19V10.325H15.675V13.675ZM5 8.325H8.325V5H5V8.325ZM10.325 8.325H13.675V5H10.325V8.325ZM15.675 8.325H19V5H15.675V8.325Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+              Selected
+            </button>
+            <button
+              className="flex items-center gap-2 cursor-pointer"
+              style={{
+                opacity: listType === 'list' ? 1 : 0.3,
+              }}
+              onClick={() => setListType('list')}
+            >
+              <span className="inline-block w-3.5">
+                <svg
+                  width="18"
+                  height="12"
+                  viewBox="0 0 18 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 12V10H12V12H0ZM0 7V5H18V7H0ZM0 2V0H18V2H0Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>{' '}
+              Full List
+            </button>
           </div>
-        )}
-        {projects
-          .filter(handleFilter)
-          .sort(handleSort)
-          .map((project, index, filteredProjects) => (
-            <ProjectItem
-              key={index}
-              project={project}
-              index={index}
-              variant={listType}
-              showYear={
-                index === 0 ||
-                project.year !== filteredProjects[index - 1]?.year
-              }
-            />
-          ))}
+        </div>
       </div>
     </main>
   );
@@ -89,7 +142,7 @@ const ProjectItem = ({
   showYear?: boolean;
 }) => {
   if (variant === 'list') {
-    if (!project.slug) {
+    if (!project.link) {
       return (
         <div className="col-span-12 grid grid-cols-12">
           <ListRow project={project} showYear={showYear} />
@@ -138,19 +191,22 @@ const ListRow = ({
   return (
     <>
       <div
-        className={`col-span-1 border-t py-4 ${showYear ? '' : 'opacity-0'}`}
+        className={`hidden lg:block col-span-2 border-t py-2 ${
+          showYear ? '' : 'opacity-0'
+        }`}
       >
         {showYear ? project.year ?? '—' : ''}
       </div>
-      <div className="col-span-3 border-t py-4">{project.title ?? '—'}</div>
-      <div className="col-span-3 border-t py-4">
+      <div className="col-span-3 border-t py-2">{project.title ?? '—'}</div>
+      <div className="col-span-3 border-t py-2">
         {project.meta?.design ?? '—'}
       </div>
-      <div className="col-span-4 border-t py-4">
+      <div className="col-span-3 border-t py-2 hidden lg:block">
         {project.meta?.role ?? '—'}
       </div>
-      <div className="col-span-1 border-t py-4 text-right">
+      <div className="col-span-1 border-t py-2 text-right">
         {project.slug && <>&rarr;</>}
+        {project.link && !project.slug && <>&#x2197;</>}
       </div>
     </>
   );

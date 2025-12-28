@@ -2,6 +2,7 @@ export type Project = {
   title: string;
   year?: number;
   slug?: string;
+  comingSoon?: boolean;
   description?: string;
   imageUrl?: string;
   link?: string;
@@ -31,12 +32,12 @@ export const projects: Project[] = [
     imageUrl: '/video/athletics-capture-optimized.mp4',
     gridArea: 'first',
     description:
-      'A complete redesign and rebuild of Athletics’ agency website to better showcase their work and capabilities. Built with Next.js.',
+      'A complete redesign and rebuild of Athletics’ agency website to better showcase their work and capabilities. Together we prototyped a lot of ideas to improve the user experience and bring delight to prospective clients. Built with Next.js.',
     link: 'https://athleticsnyc.com/',
     meta: {
       client: 'Athletics',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     featuredAsset: {
@@ -64,13 +65,13 @@ export const projects: Project[] = [
     slug: 'new-museum',
     gridArea: 'second',
     description:
-      'Redesigned and built by Athletics to enhance their digital storytelling capabilities with a focus on exhibition and live events. Built with Next.js on WPVIP.',
+      'Redesigned and built by Athletics to enhance their digital storytelling capabilities with a focus on exhibition and live events. I migrated their existing web properties into one and created a design system and component library for a full brand experience. Built with Next.js on WPVIP.',
     imageUrl: '/video/nm-capture-optimized.mp4',
     link: 'https://www.newmuseum.org/',
     meta: {
       client: 'New Museum',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     featuredAsset: {
@@ -106,14 +107,14 @@ export const projects: Project[] = [
     slug: 'nyrb',
     year: 2020,
     description:
-      'A complete redesign and rebuild of the NYRB website to better serve their 200k users and 60+ year archive.',
+      'A complete redesign and rebuild of the NYRB website to better serve their 200k users and 60+ year archive. From dynamic paywalls to custom editorial tools, their team can now manage content more efficiently and provide a better experience for their readers.',
     imageUrl: '/video/nyrb-optimized.mp4',
     gridArea: 'third',
     link: 'https://www.nybooks.com/',
     meta: {
       client: 'New York Review of Books',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     featuredAsset: {
@@ -155,7 +156,7 @@ export const projects: Project[] = [
     meta: {
       client: 'The Counter',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     featuredAsset: {
@@ -178,7 +179,7 @@ export const projects: Project[] = [
     meta: {
       client: 'New York Review of Books',
       design: 'Abbreviated Projects',
-      role: 'Front-end Developer',
+      role: 'Developer, UX',
       services: ['Web Design', 'Development'],
     },
     year: 2022,
@@ -188,47 +189,51 @@ export const projects: Project[] = [
     meta: {
       client: 'New York Review of Books',
       design: 'Abbreviated Projects',
-      role: 'Front-end Developer',
+      role: 'Developer, UX',
       services: ['Web Design', 'Development'],
     },
     year: 2022,
   },
   {
     title: 'Soor Ploom',
+    link: 'https://soorploomclothier.com/',
     meta: {
       client: 'New York Review of Books',
       design: 'Malcolm Buick',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2019,
   },
   {
     title: 'The Nation',
+    link: 'https://www.thenation.com/',
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2024,
   },
   {
     title: 'Turf',
+    link: 'https://turf.design/',
     meta: {
       client: 'Turf',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2022,
   },
   {
     title: 'Guild',
+    link: 'https://guild.com/',
     meta: {
       client: 'Guild',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2023,
@@ -236,10 +241,11 @@ export const projects: Project[] = [
   {
     title: 'Reaktor',
     year: 2021,
+    link: 'https://www.reaktor.com/',
     meta: {
       client: 'Reaktor',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
   },
@@ -249,27 +255,29 @@ export const projects: Project[] = [
     meta: {
       client: 'Otto for Square',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
   },
   {
     title: 'Meet NYU',
     year: 2019,
+    link: 'https://meet.nyu.edu/',
     meta: {
       client: 'Meet NYU',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
   },
   {
     title: 'Carlen Parfums',
     year: 2018,
+    link: 'https://carlenparfums.com/',
     meta: {
       client: 'Carlen Parfums',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
   },
@@ -278,47 +286,51 @@ export const projects: Project[] = [
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2017,
   },
   {
     title: 'Trahan Architects',
+    link: 'https://trahanarchitects.com/',
     meta: {
       client: 'The Nation',
       design: 'For Office Use Only',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
-    year: 2017,
+    year: 2016,
   },
   {
     title: 'MKCA - Michael K Chen Architecture',
+    link: 'https://mkca.com/',
     meta: {
       client: 'The Nation',
       design: 'For Office Use Only',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
-    year: 2017,
+    year: 2016,
   },
   {
     title: 'Hotel Vermont',
+    link: 'https://hotelvt.com/',
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2018,
   },
   {
     title: 'Pulitzer Arts Foundation',
+    link: 'https://pulitzerarts.org/',
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2017,
@@ -328,7 +340,7 @@ export const projects: Project[] = [
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer, UX',
       services: ['Web Design', 'Development'],
     },
     year: 2018,
@@ -338,7 +350,7 @@ export const projects: Project[] = [
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2017,
@@ -348,27 +360,36 @@ export const projects: Project[] = [
     meta: {
       client: 'The Nation',
       design: 'Brendon Avalos',
-      role: 'Front-end Developer',
+      role: 'Developer, Design, UX',
       services: ['Web Design', 'Development'],
     },
     year: 2016,
   },
   {
     title: 'Criterion Top Ten',
+    slug: 'criterion-top-ten',
+    description:
+      "Over a holiday break, I needed to know must see films from a reputable source. I gathered all the data from Criterion's Top Ten Lists's to find the top ten films and directors mentioned, hoping to kill decision paralysis. Built with React and Typescript on Vercel.",
+    link: 'https://criterion-top-ten.vercel.app/',
+    featuredAsset: {
+      type: 'video',
+      url: '/projects/criterion-top-ten/featured.webm',
+    },
     meta: {
       client: 'The Nation',
       design: 'Britton Walker',
-      role: 'Front-end Developer',
+      role: 'Design, Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2022,
   },
   {
     title: 'GOCA',
+    link: 'https://www.goca.gallery/',
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer, Prototyping',
       services: ['Web Design', 'Development'],
     },
     year: 2025,
@@ -378,27 +399,29 @@ export const projects: Project[] = [
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer, Prototyping, UX',
       services: ['Web Design', 'Development'],
     },
     year: 2026,
+    comingSoon: true,
   },
   {
     title: 'A. Savage',
     meta: {
       client: 'The Nation',
       design: 'Brendon Avalos',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2019,
   },
   {
     title: 'WPVIP',
+    link: 'https://wpvip.com/',
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2021,
@@ -408,37 +431,40 @@ export const projects: Project[] = [
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2016,
   },
   {
     title: 'Urban Omnibus',
+    link: 'https://urbanomnibus.net/',
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2019,
   },
   {
     title: 'Architectural League of NY',
+    link: 'https://archleague.org/',
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2019,
   },
   {
     title: 'Aimsun',
+    link: 'https://www.aimsun.com/',
     meta: {
       client: 'The Nation',
       design: 'Athletics',
-      role: 'Front-end Developer',
+      role: 'Developer',
       services: ['Web Design', 'Development'],
     },
     year: 2018,
@@ -446,12 +472,13 @@ export const projects: Project[] = [
   {
     title: 'Courage Museum',
     meta: {
-      client: 'The Nation',
-      design: 'Biba Washburn',
-      role: 'Front-end Developer',
+      client: 'Courage Museum',
+      design: 'Athletics, Biba Washburn',
+      role: 'Developer, Prototyping, UX',
       services: ['Web Design', 'Development'],
     },
     year: 2026,
+    comingSoon: true,
   },
   {
     title: 'Amazon Developer Experience',

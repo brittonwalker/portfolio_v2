@@ -11,7 +11,7 @@
   --font-heading: var(--font-radio-grotesk);
   --text-section-heading: clamp(56px, 10.5vw, 10.5vw);
   --text-project-title: clamp(32px, 6.25vw, 6.25vw);
-  --text-sub-title: clamp(42px, 3vw, 3vw);
+  --text-sub-title: clamp(32px, 3vw, 3vw);
   --leading-section-heading: clamp(1em, 5vw, 5vw);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);

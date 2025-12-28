@@ -1,35 +1,36 @@
 .swiss {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas:
-    'top-left top-right'
-    'bottom-left bottom-right';
-  grid-template-rows: auto auto;
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'top-left top-right'
+      'bottom-left bottom-right';
+    grid-template-rows: auto auto;
 
-  .swiss-top-left {
-    grid-area: top-left;
-    align-self: start;
-    justify-self: start;
+    .swiss-top-left {
+      grid-area: top-left;
+      align-self: start;
+      justify-self: start;
+    }
+
+    .swiss-top-right {
+      grid-area: top-right;
+      align-self: start;
+      justify-self: end;
+    }
+
+    .swiss-bottom-left {
+      grid-area: bottom-left;
+      align-self: end;
+      justify-self: start;
+    }
+
+    .swiss-bottom-right {
+      grid-area: bottom-right;
+      align-self: end;
+      justify-self: start;
+    }
   }
-
-  .swiss-top-right {
-    grid-area: top-right;
-    align-self: start;
-    justify-self: end;
-  }
-
-  .swiss-bottom-left {
-    grid-area: bottom-left;
-    align-self: end;
-    justify-self: start;
-  }
-
-  .swiss-bottom-right {
-    grid-area: bottom-right;
-    align-self: end;
-    justify-self: start;
-  }
-
   .heading {
     @apply text-[clamp(32px,12vw,1000px)] -tracking-[.01em] leading-[.9em] text-pretty;
   }

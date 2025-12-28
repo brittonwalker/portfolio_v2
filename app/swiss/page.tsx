@@ -4,7 +4,6 @@ import { IntroText } from '@/components/intro-text';
 import { Process } from '@/components/process';
 import { End } from '@/components/end';
 import { Fun } from '@/components/fun';
-import { Projects3 } from '@/components/projects-3';
 import { Grided } from '@/components/intros/grided';
 import { ProjectsRow } from '@/components/projects/projects-row';
 import { ProjectsScroller } from '@/components/projects/projects-scroller';
@@ -25,7 +24,6 @@ export default function Home() {
       <ProjectsRow />
       <ProjectsTwo />
       <Process />
-      <Projects3 />
       <Fun />
     </main>
   );

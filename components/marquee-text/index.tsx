@@ -42,7 +42,7 @@ export function MarqueeText({ text }: { text: string }) {
 
   return (
     <div
-      className="marquee-text overflow-hidden whitespace-nowrap pt-[10vh]"
+      className="marquee-text overflow-hidden whitespace-nowrap pt-8 lg:pt-[10vh]"
       ref={containerRef}
     >
       <div className="marquee-text-inner " ref={scrollerRef}>

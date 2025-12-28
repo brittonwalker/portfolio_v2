@@ -54,7 +54,7 @@ export function Header({
 
   return (
     <>
-      <div className="header fixed inset-0 px-8 py-4 z-10 pointer-events-none">
+      <div className="header fixed inset-0 px-4 lg:px-8 py-4 z-10 pointer-events-none">
         <div className="z-20 relative pointer-events-auto w-full flex justify-between items-center burger">
           <div className="w-1/3">
             {/* <button

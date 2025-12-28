@@ -46,14 +46,17 @@ export function Swiss() {
   }, []);
 
   return (
-    <div className="min-h-svh relative p-8 pt-20 swiss" ref={frameRef}>
+    <div
+      className="lg:min-h-svh relative px-4 lg:px-8 pt-20 swiss"
+      ref={frameRef}
+    >
       <div className="swiss-top-left mt-[32px]">
         <h1 className="heading">
           B<span className="text-accent">.</span> Walker
         </h1>
       </div>
       <div className="swiss-bottom-left mt-[32px] w-full h-full flex flex-col justify-end">
-        <p className="max-w-[70%] mb-16" ref={textRef}>
+        <p className="lg:max-w-[70%] lg:mb-16" ref={textRef}>
           I’m Britton, a Brooklyn-based developer building thoughtful digital
           experiences where design and engineering meet. I bring 10 years of
           experience working with cross-functional teams, focused on building
