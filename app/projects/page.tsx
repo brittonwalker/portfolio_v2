@@ -4,6 +4,21 @@ import { useState } from 'react';
 import { projects, Project } from '@/data/projects';
 import Link from 'next/link';
 
+type ProjectsByYear = {
+  [year: number]: Project[];
+};
+
+const projectsList = projects.reduce(
+  (acc: ProjectsByYear, project: Project) => {
+    if (!acc[project.year || 0]) {
+      acc[project.year || 0] = [];
+    }
+    acc[project.year || 0].push(project);
+    return acc;
+  },
+  {}
+);
+
 export default function Home() {
   const [listType, setListType] = useState<'selected' | 'list'>('selected');
 
@@ -24,9 +39,14 @@ export default function Home() {
     return 0;
   };
 
+  const projectTypes = {
+    selected: projects.filter((project) => project?.slug),
+    list: projectsList,
+  };
+
   return (
     <main className="main pt-[20vh] px-4 lg:px-8 relative">
-      <div className="flex justify-between pb-10 border-b">
+      <div className="flex justify-between pb-5 lg:pb-10 border-b">
         <h1 className="text-[10vw] leading-[90%] ">Projects</h1>
         <div className="flex gap-4 items-end text-base leading-[1em]">
           <button
@@ -62,21 +82,45 @@ export default function Home() {
               <div className="col-span-4">Role</div>
             </div>
           )}
-          {projects
-            .filter(handleFilter)
-            .sort(handleSort)
-            .map((project, index, filteredProjects) => (
-              <ProjectItem
-                key={index}
-                project={project}
-                index={index}
-                variant={listType}
-                showYear={
-                  index === 0 ||
-                  project.year !== filteredProjects[index - 1]?.year
-                }
-              />
-            ))}
+          {listType === 'list' &&
+            Object.entries(projectTypes.list)
+              .reverse()
+              .map(([year, projects]) => (
+                <div
+                  key={year}
+                  className="col-span-12 grid lg:grid-cols-12 mb-20"
+                >
+                  <div className="lg:col-span-2 py-2 lg:border-t text-4xl lg:text-5xl">
+                    {year}
+                  </div>
+                  <div className="lg:col-span-10">
+                    {projects.map((project, index) => (
+                      <ProjectItem
+                        key={index}
+                        project={project}
+                        index={index}
+                        variant={listType}
+                        showYear={index === 0}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+          {listType === 'selected' &&
+            projectTypes.selected
+              .sort(handleSort)
+              .map((project, index, filteredProjects) => (
+                <ProjectItem
+                  key={index}
+                  project={project}
+                  index={index}
+                  variant={listType}
+                  showYear={
+                    index === 0 ||
+                    project.year !== filteredProjects[index - 1]?.year
+                  }
+                />
+              ))}
         </div>
         <div className="sticky bottom-0 inset-x-0 z-10 flex justify-center pb-8 mt-10 pointer-events-none">
           <div className="bg-foreground text-background w-fit py-2 px-4 rounded-[8px] flex gap-4 text-sm pointer-events-auto">
@@ -134,7 +178,6 @@ export default function Home() {
 const ProjectItem = ({
   project,
   variant = 'selected',
-  showYear = true,
 }: {
   project: Project;
   index: number;
@@ -144,17 +187,17 @@ const ProjectItem = ({
   if (variant === 'list') {
     if (!project.link) {
       return (
-        <div className="col-span-12 grid grid-cols-12">
-          <ListRow project={project} showYear={showYear} />
+        <div className="grid lg:grid-cols-10 relative border-t lg:border-none">
+          <ListRow project={project} />
         </div>
       );
     } else {
       return (
         <Link
           href={`/projects/${project.slug}`}
-          className="col-span-12 grid grid-cols-12"
+          className="grid lg:grid-cols-10 relative border-t lg:border-none"
         >
-          <ListRow project={project} showYear={showYear} />
+          <ListRow project={project} />
         </Link>
       );
     }
@@ -181,30 +224,17 @@ const ProjectItem = ({
   );
 };
 
-const ListRow = ({
-  project,
-  showYear = true,
-}: {
-  project: Project;
-  showYear?: boolean;
-}) => {
+const ListRow = ({ project }: { project: Project }) => {
   return (
     <>
-      <div
-        className={`hidden lg:block col-span-2 border-t py-2 ${
-          showYear ? '' : 'opacity-0'
-        }`}
-      >
-        {showYear ? project.year ?? '—' : ''}
-      </div>
-      <div className="col-span-3 border-t py-2">{project.title ?? '—'}</div>
-      <div className="col-span-3 border-t py-2">
+      <div className="col-span-3 lg:border-t py-2">{project.title ?? '—'}</div>
+      <div className="col-span-3 lg:border-t py-2 hidden lg:block">
         {project.meta?.design ?? '—'}
       </div>
-      <div className="col-span-3 border-t py-2 hidden lg:block">
+      <div className="col-span-3 lg:border-t py-2 hidden lg:block">
         {project.meta?.role ?? '—'}
       </div>
-      <div className="col-span-1 border-t py-2 text-right">
+      <div className="col-span-1 lg:border-t py-2 text-right absolute lg:static right-4 top-1/2 -translate-y-1/2 lg:translate-y-0">
         {project.slug && <>&rarr;</>}
         {project.link && !project.slug && <>&#x2197;</>}
       </div>

@@ -214,7 +214,7 @@ export const projects: Project[] = [
       role: 'Developer',
       services: ['Web Design', 'Development'],
     },
-    year: 2024,
+    year: 2023,
   },
   {
     title: 'Turf',
@@ -240,7 +240,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Reaktor',
-    year: 2021,
+    year: 2023,
     link: 'https://www.reaktor.com/',
     meta: {
       client: 'Reaktor',
@@ -272,7 +272,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Carlen Parfums',
-    year: 2018,
+    year: 2017,
     link: 'https://carlenparfums.com/',
     meta: {
       client: 'Carlen Parfums',
@@ -303,7 +303,7 @@ export const projects: Project[] = [
     year: 2016,
   },
   {
-    title: 'MKCA - Michael K Chen Architecture',
+    title: 'Michael K Chen Architecture',
     link: 'https://mkca.com/',
     meta: {
       client: 'The Nation',
@@ -402,7 +402,7 @@ export const projects: Project[] = [
       role: 'Developer, Prototyping, UX',
       services: ['Web Design', 'Development'],
     },
-    year: 2026,
+    year: 2025,
     comingSoon: true,
   },
   {
@@ -425,16 +425,6 @@ export const projects: Project[] = [
       services: ['Web Design', 'Development'],
     },
     year: 2021,
-  },
-  {
-    title: 'American Theatre Wing',
-    meta: {
-      client: 'The Nation',
-      design: 'Athletics',
-      role: 'Developer',
-      services: ['Web Design', 'Development'],
-    },
-    year: 2016,
   },
   {
     title: 'Urban Omnibus',
@@ -477,7 +467,7 @@ export const projects: Project[] = [
       role: 'Developer, Prototyping, UX',
       services: ['Web Design', 'Development'],
     },
-    year: 2026,
+    year: 2025,
     comingSoon: true,
   },
   {
@@ -489,5 +479,45 @@ export const projects: Project[] = [
       services: ['Web Design', 'Development'],
     },
     year: 2025,
+  },
+  {
+    title: 'Le Livre',
+    meta: {
+      client: 'Athletics',
+      design: 'Athletics',
+      role: 'Design, Developer, Prototyping',
+      services: ['Web Design', 'Development'],
+    },
+    year: 2018,
+  },
+  {
+    title: 'One Meditation',
+    meta: {
+      client: 'Athletics',
+      design: 'John Soat',
+      role: 'Developer, Prototyping',
+      services: ['Web Design', 'Development'],
+    },
+    year: 2018,
+  },
+  {
+    title: 'Amobee',
+    meta: {
+      client: 'Athletics',
+      design: 'Athletics',
+      role: 'Developer',
+      services: ['Web Design', 'Development'],
+    },
+    year: 2018,
+  },
+  {
+    title: 'Blanket Forts',
+    meta: {
+      client: 'Athletics',
+      design: 'Britton Walker',
+      role: 'Design, Developer',
+      services: ['Web Design', 'Development'],
+    },
+    year: 2021,
   },
 ];
