@@ -40,6 +40,7 @@ export function ProjectsRow() {
                         muted
                         loop
                         autoPlay
+                        playsInline
                       />
                     )}
                   </div>

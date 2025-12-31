@@ -56,7 +56,7 @@ export function Swiss() {
         </h1>
       </div>
       <div className="swiss-bottom-left mt-[32px] w-full h-full flex flex-col justify-end">
-        <p className="lg:max-w-[70%] lg:mb-16" ref={textRef}>
+        <p className="lg:max-w-[586px] lg:mb-16" ref={textRef}>
           I’m Britton, a Brooklyn-based developer building thoughtful digital
           experiences where design and engineering meet. I bring 10 years of
           experience working with cross-functional teams, focused on building
@@ -70,6 +70,7 @@ export function Swiss() {
             autoPlay
             loop
             muted
+            playsInline
             className="w-full h-full object-cover"
             ref={videoRef}
           />
