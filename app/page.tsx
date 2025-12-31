@@ -1,6 +1,8 @@
 import { Swiss } from '@/components/intros/swiss';
 import { MarqueeText } from '@/components/marquee-text';
 import { ProjectsLeft } from '@/components/projects/projects-left';
+import { Capabilities } from '@/components/capabilities';
+import { IntroText } from '@/components/intro-text';
 
 export default function Home() {
   return (
@@ -8,6 +10,8 @@ export default function Home() {
       <Swiss />
       <MarqueeText text="Selected Projects" />
       <ProjectsLeft />
+      <IntroText />
+      <Capabilities />
     </main>
   );
 }
