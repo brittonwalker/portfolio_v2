@@ -43,25 +43,6 @@ export default async function Page({
   return (
     <div className="pt-[20vh] px-8">
       <Header project={project} />
-
-      {/* Your project content here */}
-      <div className="project-content">
-        <h1>{project.title}</h1>
-        <p>{project.description}</p>
-
-        <div className="assets">
-          {project?.assets &&
-            project.assets.map((asset, index) => (
-              <div key={index} className="asset-item my-8">
-                {asset.type === 'image' ? (
-                  <img src={asset.url} alt={`Asset ${index + 1}`} />
-                ) : asset.type === 'video' ? (
-                  <video src={asset.url} controls className="w-full" />
-                ) : null}
-              </div>
-            ))}
-        </div>
-      </div>
     </div>
   );
 }
