@@ -66,10 +66,10 @@ export function Swiss() {
       </div>
       <div className="swiss-bottom-right flex flex-col items-end mt-[32px] relative">
         <div className="w-1/2" ref={videoRef}>
-          <Video
+          {/* <Video
             src={'/video/bboys-ocean.webm'}
             className="w-full h-full object-cover"
-          />
+          /> */}
         </div>
       </div>
     </div>
