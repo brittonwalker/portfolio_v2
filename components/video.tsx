@@ -30,7 +30,9 @@ export function Video({ src, className }: { src: string; className?: string }) {
       muted
       loop
       playsInline
-      autoPlay
+      webkit-playsinline="true"
+      x5-playsinline="true"
+      disablePictureInPicture
       preload="metadata"
       className={className}
     />
