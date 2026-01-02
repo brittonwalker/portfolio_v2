@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 import { useLoading } from '@/context/loading-context';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { Video } from '@/components/video';
 import './styles.css';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
@@ -14,7 +15,7 @@ export function Swiss() {
   const { isReady } = useLoading();
   const frameRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const frame = frameRef.current;
@@ -64,18 +65,10 @@ export function Swiss() {
         </p>
       </div>
       <div className="swiss-bottom-right flex flex-col items-end mt-[32px] relative">
-        <div className="w-1/2">
-          <video
+        <div className="w-1/2" ref={videoRef}>
+          <Video
             src={'/video/bboys-ocean.webm'}
-            autoPlay
-            loop
-            muted
-            playsInline
-            webkit-playsinline="true"
-            x5-playsinline="true"
-            disablePictureInPicture
             className="w-full h-full object-cover"
-            ref={videoRef}
           />
         </div>
       </div>
