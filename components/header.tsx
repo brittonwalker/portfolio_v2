@@ -68,7 +68,7 @@ export function Header({
               href="/"
               className="cursor-pointer pointer-events-auto uppercase"
             >
-              B.
+              B<span className="text-accent">.</span>
             </Link>
           </div>
           <div className="w-1/3 flex items-center gap-6 justify-end">

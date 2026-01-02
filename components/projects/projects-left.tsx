@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { Project, projects } from '@/data/projects';
 import Link from 'next/link';
+import { Video } from '../video';
 
 export function ProjectsLeft() {
   return (
@@ -109,15 +110,8 @@ const ProjectCard = ({
           <div className="project-card__asset  bg-accent">
             {project?.featuredAsset?.type === 'video' &&
               project.featuredAsset?.url && (
-                <video
+                <Video
                   src={project.featuredAsset.url}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  webkit-playsinline="true"
-                  x5-playsinline="true"
-                  disablePictureInPicture
                   className="w-full h-full object-cover"
                 />
               )}
