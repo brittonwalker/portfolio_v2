@@ -71,6 +71,9 @@ export function Swiss() {
             loop
             muted
             playsInline
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            disablePictureInPicture
             className="w-full h-full object-cover"
             ref={videoRef}
           />

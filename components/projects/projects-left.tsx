@@ -111,11 +111,14 @@ const ProjectCard = ({
               project.featuredAsset?.url && (
                 <video
                   src={project.featuredAsset.url}
-                  className="w-full h-full object-cover"
                   autoPlay
                   loop
                   muted
                   playsInline
+                  webkit-playsinline="true"
+                  x5-playsinline="true"
+                  disablePictureInPicture
+                  className="w-full h-full object-cover"
                 />
               )}
           </div>
