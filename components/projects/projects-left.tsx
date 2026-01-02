@@ -15,12 +15,17 @@ export function ProjectsLeft() {
           .map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
-        <a
+        <Link
           href="/projects"
-          className="text-sub-title leading-[1.1em] md:leading-[3vw] text-balance block border-b border-foreground mt-10 border-offset-4 pb-2 text-center"
+          className="text-sub-title leading-[1.1em] md:leading-[3vw] text-balance mt-10 border-offset-4 pb-2 text-center"
         >
-          View Project Archive ⏎
-        </a>
+          <div className="flex justify-center relative group">
+            <div className="aspect-square rounded-full bg-foreground w-[400px] group-hover:scale-110 transition-transform duration-700"></div>
+            <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center text-foreground mix-blend-difference group-hover:scale-105 transition-transform duration-500">
+              View Project Archive
+            </div>
+          </div>
+        </Link>
       </div>
     </div>
   );

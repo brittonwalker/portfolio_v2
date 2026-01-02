@@ -20,15 +20,7 @@ const projectsList = projects.reduce(
 );
 
 export default function Home() {
-  const [listType, setListType] = useState<'selected' | 'list'>('selected');
-
-  const handleFilter = (project: Project) => {
-    if (listType === 'selected') {
-      return project?.slug;
-    }
-
-    return true;
-  };
+  const [listType, setListType] = useState<'selected' | 'list'>('list');
 
   const handleSort = (a: Project, b: Project) => {
     if (a.year && b.year) {
@@ -40,7 +32,7 @@ export default function Home() {
   };
 
   const projectTypes = {
-    selected: projects.filter((project) => project?.slug),
+    selected: projects.filter((project) => project?.isFeatured),
     list: projectsList,
   };
 
@@ -194,7 +186,9 @@ const ProjectItem = ({
     } else {
       return (
         <Link
-          href={`/projects/${project.slug}`}
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
           className="grid lg:grid-cols-10 relative border-t lg:border-none"
         >
           <ListRow project={project} />
@@ -205,7 +199,7 @@ const ProjectItem = ({
 
   return (
     <div className="col-span-12 md:col-span-6 lg:col-span-4 mb-10">
-      <a href={`/projects/${project.slug}`}>
+      <a href={project.link} target="_blank" rel="noopener noreferrer">
         <div className="w-full aspect-video mb-4 bg-gray-200 overflow-hidden">
           {project.featuredAsset?.type === 'video' ? (
             <video
