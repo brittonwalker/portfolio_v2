@@ -15,7 +15,7 @@ export function Swiss() {
   const { isReady } = useLoading();
   const frameRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
-  const videoRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useGSAP(() => {
     const frame = frameRef.current;
@@ -65,9 +65,15 @@ export function Swiss() {
         </p>
       </div>
       <div className="swiss-bottom-right flex flex-col items-end mt-[32px] relative">
-        <div className="w-1/2" ref={videoRef}>
-          <Video
+        <div className="w-1/2">
+          <video
+            ref={videoRef}
             src={'/video/bboys-ocean.webm'}
+            muted
+            loop
+            playsInline
+            autoPlay
+            preload="metadata"
             className="w-full h-full object-cover"
           />
         </div>

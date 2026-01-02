@@ -62,7 +62,7 @@ export function IntroText() {
       className="md:text-[max(21px,3vw)] md:leading-[1.2em] pt-[15vh] relative"
       ref={containerRef}
     >
-      <div className="text-container md:max-w-[80vw] pl-[6.25vw]">
+      <div className="text-container md:max-w-[80vw] md:pl-[6.25vw]">
         <p
           ref={(el) => {
             if (el) textRefs.current[0] = el;
