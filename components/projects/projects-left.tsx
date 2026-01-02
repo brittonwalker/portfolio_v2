@@ -11,15 +11,15 @@ export function ProjectsLeft() {
     <div className="projects-left px-4 lg:px-8 pt-20 lg:pt-[15vh] relative bg-background border-t border-foreground">
       <div className="projects-content flex flex-col gap-20 lg:gap-[10vw] lg:px-[6.25vw]">
         {projects
-          .filter((project) => project.slug)
+          .filter((project) => project.isFeatured)
           .map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} />
+            <ProjectCard key={index} project={project} index={index} />
           ))}
         <a
           href="/projects"
-          className="text-sub-title leading-[1.1em] md:leading-[3vw] text-balance block text-center p-8 bg-foreground text-background rounded-[8px]"
+          className="text-sub-title leading-[1.1em] md:leading-[3vw] text-balance block border-b border-foreground mt-10 border-offset-4 pb-2 text-center"
         >
-          See All Projects ↗
+          View Project Archive ⏎
         </a>
       </div>
     </div>
@@ -90,7 +90,7 @@ const ProjectCard = ({
   }, [index]);
 
   return (
-    <Link href={`/projects/${project.slug}`}>
+    <Link href={project?.link || '#'} target="_blank" rel="noopener noreferrer">
       <div
         ref={cardRef}
         className="project-card grid grid-cols-1 lg:grid-cols-5 gap-[3vw] overflow-hidden"

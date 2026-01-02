@@ -6,6 +6,7 @@ export type Project = {
   description?: string;
   imageUrl?: string;
   link?: string;
+  isFeatured?: boolean;
   images?: string[];
   gridArea?: string;
   featuredAsset?: {
@@ -27,7 +28,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: 'Athletics',
-    slug: 'athletics',
+    isFeatured: true,
     year: 2024,
     imageUrl: '/video/athletics-capture-optimized.mp4',
     gridArea: 'first',
@@ -62,7 +63,7 @@ export const projects: Project[] = [
   {
     title: 'New Museum',
     year: 2024,
-    slug: 'new-museum',
+    isFeatured: true,
     gridArea: 'second',
     description:
       'Redesigned and built by Athletics to enhance their digital storytelling capabilities with a focus on exhibition and live events. I migrated their existing web properties into one and created a design system and component library for a full brand experience. Built with Next.js on WPVIP.',
@@ -104,7 +105,7 @@ export const projects: Project[] = [
 
   {
     title: 'New York Review of Books',
-    slug: 'nyrb',
+    isFeatured: true,
     year: 2020,
     description:
       'A complete redesign and rebuild of the NYRB website to better serve their 200k users and 60+ year archive. From dynamic paywalls to custom editorial tools, their team can now manage content more efficiently and provide a better experience for their readers.',
@@ -146,7 +147,7 @@ export const projects: Project[] = [
   },
   {
     title: 'The Counter',
-    slug: 'the-counter',
+    isFeatured: true,
     year: 2020,
     description:
       'The Counter needed a system that could elevate their storytelling in food journalism. Collaborating with Athletics, I helped build a custom CMS and front-end experience to bring their stories to life.',
@@ -367,7 +368,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Criterion Top Ten',
-    slug: 'criterion-top-ten',
+    isFeatured: true,
     description:
       "Over a holiday break, I needed to know must see films from a reputable source. I gathered all the data from Criterion's Top Ten Lists's to find the top ten films and directors mentioned, hoping to kill decision paralysis. Built with React and Typescript on Vercel.",
     link: 'https://criterion-top-ten.vercel.app/',
