@@ -10,7 +10,6 @@ export default function Home() {
       <Swiss />
       <MarqueeText text="Selected Projects" />
       <ProjectsLeft />
-      <IntroText />
       <Capabilities />
     </main>
   );
