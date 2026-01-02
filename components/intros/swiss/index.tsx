@@ -6,7 +6,6 @@ import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 import { useLoading } from '@/context/loading-context';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { Video } from '@/components/video';
 import './styles.css';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
@@ -24,26 +23,30 @@ export function Swiss() {
 
     if (!frame || !text || !video) return;
 
-    gsap
-      .timeline({
-        defaults: {
-          ease: 'none',
-        },
-        scrollTrigger: {
-          trigger: frame,
-          start: 'clamp(top bottom)',
-          end: 'bottom top',
-          scrub: true,
-        },
-      })
-      .to(frame, {
-        yPercent: 35,
-        scale: 0.95,
-        startAt: { filter: 'brightness(100%) blur(0px)' },
-        filter: 'blur(3px)',
-      })
-      .to(text, { yPercent: -100 }, 0)
-      .to(video, { yPercent: -30 }, 0);
+    let mm = gsap.matchMedia();
+
+    mm.add('(min-width: 1024px)', () => {
+      gsap
+        .timeline({
+          defaults: {
+            ease: 'none',
+          },
+          scrollTrigger: {
+            trigger: frame,
+            start: 'clamp(top bottom)',
+            end: 'bottom top',
+            scrub: true,
+          },
+        })
+        .to(frame, {
+          yPercent: 35,
+          scale: 0.95,
+          startAt: { filter: 'brightness(100%) blur(0px)' },
+          filter: 'blur(3px)',
+        })
+        .to(text, { yPercent: -100 }, 0)
+        .to(video, { yPercent: -30 }, 0);
+    });
   }, []);
 
   return (
