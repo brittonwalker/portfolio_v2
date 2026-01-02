@@ -23,7 +23,7 @@ export function Swiss() {
 
     if (!frame || !text || !video) return;
 
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     mm.add('(min-width: 1024px)', () => {
       gsap
