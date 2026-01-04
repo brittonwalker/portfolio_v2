@@ -108,7 +108,7 @@ export const projects: Project[] = [
     isFeatured: true,
     year: 2020,
     description:
-      'A complete redesign and rebuild of the NYRB website to better serve their 200k users and 60+ year archive. From dynamic paywalls to custom editorial tools, their team can now manage content more efficiently and provide a better experience for their readers.',
+      'A complete redesign and rebuild by Athletics of the NYRB website to better serve their 200k users and 60+ year archive. From dynamic paywalls to custom editorial tools, their team can now manage content more efficiently and provide a better experience for their readers.',
     imageUrl: '/video/nyrb-optimized.mp4',
     gridArea: 'third',
     link: 'https://www.nybooks.com/',
@@ -396,7 +396,7 @@ export const projects: Project[] = [
     year: 2025,
   },
   {
-    title: 'Kieren Timberlake',
+    title: 'Kieren Timberlake (coming soon)',
     meta: {
       client: 'The Nation',
       design: 'Athletics',
@@ -461,7 +461,7 @@ export const projects: Project[] = [
     year: 2018,
   },
   {
-    title: 'Courage Museum',
+    title: 'Courage Museum (coming soon)',
     meta: {
       client: 'Courage Museum',
       design: 'Athletics, Biba Washburn',

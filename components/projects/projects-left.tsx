@@ -5,6 +5,8 @@ import gsap from 'gsap';
 import { Project, projects } from '@/data/projects';
 import Link from 'next/link';
 import { Video } from '../video';
+import { Windows } from '../icons/windows';
+import { Canvas } from '../canvas';
 
 export function ProjectsLeft() {
   return (
@@ -15,14 +17,22 @@ export function ProjectsLeft() {
           .map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
-        <Link
-          href="/projects"
-          className="text-sub-title leading-[1.1em] md:leading-[3vw] text-balance mt-10 border-offset-4 pb-2 text-center"
-        >
-          <div className="flex justify-center relative group">
-            <div className="aspect-square rounded-full bg-foreground w-[400px] group-hover:scale-110 transition-transform duration-700"></div>
-            <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center text-foreground mix-blend-difference group-hover:scale-105 transition-transform duration-500">
-              View Project Archive
+        <Link href={'/projects'}>
+          <div className="project-card grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-[3vw] overflow-hidden">
+            <div className="project-card__caption lg:col-span-2 order-2 lg:order-none">
+              <h3 className="text-sub-title leading-[1.1em] md:leading-[3vw] text-balance">
+                View Full Project Archive
+              </h3>
+            </div>
+            <div className="lg:col-span-3 order-1 lg:order-none">
+              <div className="aspect-video border border-accent relative">
+                <Canvas />
+                <div className="absolute flex items-center justify-center pointer-events-none top-0 w-full h-full">
+                  <div className="w-1/3">
+                    <Windows />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Link>
@@ -98,7 +108,7 @@ const ProjectCard = ({
     <Link href={project?.link || '#'} target="_blank" rel="noopener noreferrer">
       <div
         ref={cardRef}
-        className="project-card grid grid-cols-1 lg:grid-cols-5 gap-[3vw] overflow-hidden"
+        className="project-card grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-[3vw] overflow-hidden"
       >
         <div className="project-card__caption lg:col-span-2 order-2 lg:order-none">
           <div className="project-card__index leading-[1em] mb-4 hidden lg:block">
