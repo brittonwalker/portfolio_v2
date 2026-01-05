@@ -17,7 +17,7 @@ export function ProjectsLeft() {
           .map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
-        <Link href={'/projects'}>
+        <a href={'/projects'}>
           <div className="project-card grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-[3vw] overflow-hidden">
             <div className="project-card__caption lg:col-span-2 order-2 lg:order-none">
               <h3 className="text-sub-title leading-[1.1em] md:leading-[3vw] text-balance">
@@ -35,7 +35,7 @@ export function ProjectsLeft() {
               </div>
             </div>
           </div>
-        </Link>
+        </a>
       </div>
     </div>
   );
