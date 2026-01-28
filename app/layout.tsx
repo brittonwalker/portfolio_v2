@@ -1,9 +1,9 @@
 import localFont from 'next/font/local';
+import { GoogleTagManager } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import './globals.css';
 
 import { PageWrapper } from '@/components/page-wrapper';
-import { colors } from '@/lib/colors';
 import { LoadingProvider } from '@/context/loading-context';
 import { PageLoader } from '@/components/page-loader';
 
@@ -61,6 +61,7 @@ export default function RootLayout({
         } as React.CSSProperties
       }
     >
+      <GoogleTagManager gtmId="GTM-TTP8Z2F" />
       <body
         className={`${neueMontreal.variable} ${radioGrotesk.variable} antialiased transition-colors duration-300 bg-background text-foreground`}
       >
