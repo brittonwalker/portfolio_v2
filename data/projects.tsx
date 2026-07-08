@@ -385,6 +385,40 @@ export const projects: Project[] = [
     year: 2022,
   },
   {
+    title: 'Mila Linares Portfolio',
+    link: 'https://milalinares.site/',
+    meta: {
+      client: 'Mila Linares',
+      design: 'Britton Walker',
+      role: 'Designer, Developer, Prototyping, UX',
+      services: ['Web Design', 'Development', 'Design'],
+    },
+    year: 2026,
+  },
+  {
+    title: 'Courage Museum',
+    link: 'https://couragemuseum.org/',
+    meta: {
+      client: 'Courage Museum',
+      design: 'Athletics, Biba Washburn',
+      role: 'Developer, Prototyping, UX',
+      services: ['Web Design', 'Development'],
+    },
+    year: 2025,
+  },
+  {
+    title: 'Kieren Timberlake',
+    link: 'https://kierantimberlake.com/',
+    meta: {
+      client: 'The Nation',
+      design: 'Athletics',
+      role: 'Developer, Prototyping, UX',
+      services: ['Web Design', 'Development'],
+    },
+    year: 2025,
+    comingSoon: true,
+  },
+  {
     title: 'GOCA',
     link: 'https://www.goca.gallery/',
     meta: {
@@ -394,17 +428,6 @@ export const projects: Project[] = [
       services: ['Web Design', 'Development'],
     },
     year: 2025,
-  },
-  {
-    title: 'Kieren Timberlake (coming soon)',
-    meta: {
-      client: 'The Nation',
-      design: 'Athletics',
-      role: 'Developer, Prototyping, UX',
-      services: ['Web Design', 'Development'],
-    },
-    year: 2025,
-    comingSoon: true,
   },
   {
     title: 'A. Savage',
@@ -459,17 +482,6 @@ export const projects: Project[] = [
       services: ['Web Design', 'Development'],
     },
     year: 2018,
-  },
-  {
-    title: 'Courage Museum (coming soon)',
-    meta: {
-      client: 'Courage Museum',
-      design: 'Athletics, Biba Washburn',
-      role: 'Developer, Prototyping, UX',
-      services: ['Web Design', 'Development'],
-    },
-    year: 2025,
-    comingSoon: true,
   },
   {
     title: 'Amazon Developer Experience',

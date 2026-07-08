@@ -16,7 +16,7 @@ const projectsList = projects.reduce(
     acc[project.year || 0].push(project);
     return acc;
   },
-  {}
+  {},
 );
 
 export default function Home() {
@@ -66,6 +66,28 @@ export default function Home() {
             listType === 'list' ? '' : 'gap-4'
           }`}
         >
+          {listType === 'list' && (
+            <div className="lg:text-[max(32px,1vw)] col-span-7 mb-10 pb-20 text-pretty">
+              <div className="max-w-[970px]">
+                <p className="mb-6">
+                  I'm currently freelancing with the fine folks at{' '}
+                  <a
+                    href="https://area17.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-nowrap"
+                  >
+                    Area 17 ↗
+                  </a>{' '}
+                </p>
+                <p>
+                  This is a full list of projects I’ve worked on. Some of these
+                  are personal projects, some are client work, and some are
+                  projects I’ve worked on as part of a team.
+                </p>
+              </div>
+            </div>
+          )}
           {listType === 'list' && (
             <div className="col-span-12 grid-cols-12 opacity-80 py-2 hidden lg:grid">
               <div className="col-span-2">Year</div>
@@ -227,7 +249,11 @@ const ListRow = ({ project }: { project: Project }) => {
         {project.meta?.design ?? '—'}
       </div>
       <div className="col-span-3 lg:border-t py-2 hidden lg:block">
-        {project.meta?.role ?? '—'}
+        {project.meta?.role?.split(',').map((role, index) => (
+          <span className="block" key={index}>
+            {role.trim()}
+          </span>
+        )) || '—'}
       </div>
       <div className="col-span-1 lg:border-t py-2 text-right absolute lg:static right-4 top-1/2 -translate-y-1/2 lg:translate-y-0">
         {project.slug && <>&rarr;</>}
