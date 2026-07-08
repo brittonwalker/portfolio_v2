@@ -6,7 +6,6 @@ import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/SplitText';
 import { useLoading } from '@/context/loading-context';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { Thinker } from '@/components/icons/thinker';
 import './styles.css';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
@@ -15,7 +14,7 @@ export function Swiss() {
   const { isReady } = useLoading();
   const frameRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const frame = frameRef.current;
@@ -82,25 +81,26 @@ export function Swiss() {
         </h1>
       </div>
       <div className="swiss-bottom-left mt-[32px] w-full h-full flex flex-col justify-end">
-        <p className="lg:max-w-[586px] lg:mb-16" ref={textRef}>
+        <p className="lg:max-w-[586px] lg:mb-8" ref={textRef}>
           I’m Britton, a Brooklyn-based developer building thoughtful digital
           experiences where design and engineering meet. I bring 10 years of
           experience working with cross-functional teams, focused on building
           clear, reliable digital systems.
         </p>
       </div>
-      <div className="swiss-bottom-right flex flex-col items-end mt-[32px] relative">
-        <div className="w-1/2">
-          <video
-            ref={videoRef}
-            src={'/video/bboys-ocean.webm'}
-            muted
-            loop
-            playsInline
-            autoPlay
-            preload="metadata"
-            className="w-full h-full object-cover"
-          />
+      <div className="swiss-bottom-right mt-[32px] relative">
+        <div ref={videoRef} className="flex flex-col items-end">
+          <div className="w-1/2">
+            <video
+              src={'/video/bboys-ocean.webm'}
+              muted
+              loop
+              playsInline
+              autoPlay
+              preload="metadata"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </div>
