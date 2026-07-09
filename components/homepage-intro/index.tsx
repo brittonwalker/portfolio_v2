@@ -10,7 +10,7 @@ import './styles.css';
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
-export function Swiss() {
+export function HomepageIntro() {
   const { isReady } = useLoading();
   const frameRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);

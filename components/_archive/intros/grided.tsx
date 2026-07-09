@@ -34,7 +34,7 @@ export function Grided() {
 
     gsap.set(
       lineRefs.current.map(({ el }) => el),
-      { opacity: 1 }
+      { opacity: 1 },
     );
 
     lineRefs.current.forEach(({ el, direction }) => {
@@ -51,7 +51,7 @@ export function Grided() {
             ease: 'power2.out',
             duration: 1.6,
           },
-          '<'
+          '<',
         );
       } else {
         tl.fromTo(
@@ -66,7 +66,7 @@ export function Grided() {
             ease: 'power2.out',
             duration: 1.6,
           },
-          '<'
+          '<',
         );
       }
     });
@@ -87,7 +87,7 @@ export function Grided() {
         stagger: 0.1,
         ease: 'power2.out',
       },
-      '<'
+      '<',
     );
   }, [isReady]);
 
@@ -112,7 +112,7 @@ export function Grided() {
                 if (el) messageRefs.current[0] = el;
               }}
             >
-              <h1>Britton Walker</h1>
+              <h1>Britton Walker tk</h1>
             </div>
           </div>
           <div

@@ -4,9 +4,9 @@ import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { Project, projects } from '@/data/projects';
 import Link from 'next/link';
-import { Video } from '../video';
-import { Windows } from '../icons/windows';
-import { Canvas } from '../canvas';
+import { Video } from '@/components/video';
+import { Windows } from '@/components/icons/windows';
+import { Canvas } from '@/components/canvas';
 
 export function ProjectsLeft() {
   return (
@@ -65,12 +65,12 @@ const ProjectCard = ({
       tl.fromTo(
         cardRef.current,
         { y: 100, opacity: 0 },
-        { y: 0, opacity: 1, ease: ease, duration: duration }
+        { y: 0, opacity: 1, ease: ease, duration: duration },
       );
 
       const title = cardRef.current.querySelector('h3');
       const description = cardRef.current.querySelector(
-        'p.project-card__description'
+        'p.project-card__description',
       );
       const indexEl = cardRef.current.querySelector('.project-card__index');
       tl.fromTo(
@@ -84,7 +84,7 @@ const ProjectCard = ({
           stagger: 0.125,
           delay: 0.2,
         },
-        '0'
+        '0',
       );
 
       const asset = cardRef.current.querySelector('.project-card__asset');
@@ -94,7 +94,7 @@ const ProjectCard = ({
             asset.classList.add('reveal');
           },
           undefined,
-          '0'
+          '0',
         );
       }
 

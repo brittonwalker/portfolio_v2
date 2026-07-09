@@ -5,7 +5,7 @@ import { useLenis, ReactLenis } from 'lenis/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Header } from './header';
 import { useLoading } from '@/context/loading-context';
-import { End } from './end';
+import { End } from '@/components/_archive/end';
 
 export function PageWrapper({
   children,
